@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+}
+header{
+    background-color: aqua;
+    width: 100%;
+    height: 5vw;
+
+}
+header section .ladinho{
+    display:flex;
+    background-color: beige;
+    justify-content: flex-start; /*Horizontal*/
+    align-items: center; /*vertical*/
+    margin-left: 15%;
+
+
+}
+header section .outro_ladinho{
+    display:flex;
+    background-color: beige;
+    justify-content: flex-end; /*Horizontal*/
+    align-items: center; /*vertical*/
+    margin-right: 15%;
+
+
+}
+header .cabeçalho img{
+    width: 5vw;
+    height: 10vh;
+    margin-left: 5%;
+    margin-right: 5%;
+}
