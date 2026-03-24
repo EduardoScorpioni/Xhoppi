@@ -29,7 +29,7 @@
                     <li><a href="">Cadastro Produto</a></li>
                     <li><a href="">Ver Clientes</a></li>
                     <li><a href="">Ver Funcionarios</a></li>
-                    <li><a href="">Ver Produtos</a></li>
+                    <li><a href="Produtos.php">Ver Produtos</a></li>
                 </ul>
         </section>
     </header>
