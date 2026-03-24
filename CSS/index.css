@@ -27,3 +27,60 @@
     height: 8rem;
     object-fit: cover;
 }
+.produtos{
+    display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* esta função faz com que ele preencha automaticamente com valores ja ditos */
+ /*   grid-template-columns: repeat(10,1fr); */
+    gap: 20px;
+    padding: 20px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.card{
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card img {
+    width: 100%;
+}
+.titulo {
+    font-size: 14px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preco {
+    color: #ff5722;
+    font-weight: bold;
+}
+
+.estoque {
+    color: #999;
+    font-size: 12px;
+}
+.titulo-secao {
+    text-align: center;
+    color: #ff5722;
+    margin: 20px 0;
+    position: relative;
+}
+.linha-capenga {
+    width: 70%;
+    margin: 20px auto;
+    border: none;
+    height: 4px;
+    background-color: #ff5722;
+}

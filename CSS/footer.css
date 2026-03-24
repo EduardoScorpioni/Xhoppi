@@ -45,12 +45,13 @@ body{
 .copy {
     grid-column: 1 / -1; /* ocupa todas as colunas */
     margin-top: 20px;
+    color: #000000;
     
 }
 
 .copy hr {
     border: none;
     height: 1px;
-    background-color: #ccc; /* cor da linha */
+    background-color: #000000; /* cor da linha */
     margin-bottom: 10px;
 }
