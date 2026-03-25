@@ -15,7 +15,7 @@
                 </section>
             <section class = "sair">
                 <label for="">
-                    <a href="logout.html"> Sair</a>
+                    <a href="login.html"> Sair</a>
                 </label>
             </section>
 

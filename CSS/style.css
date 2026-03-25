@@ -4,120 +4,145 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 .topbar {
-    height: 60px;
+    height: 3.75rem;
     background: rgb(255, 255, 255);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
+    padding: 0 2.5rem;
 }
+
 .top-left {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
 }
+
 .logo {
-    width: 35px;
+    width: 2.1875rem;
 }
+
 .brand {
     color: rgb(238, 77, 45);
-    font-size: 22px;
+    font-size: 1.375rem;
     font-weight: bold;
 }
+
 .enter {
-    margin-left: 10px;
-    font-size: 18px;
+    margin-left: 0.625rem;
+    font-size: 1.125rem;
     color: rgb(0, 0, 0);
 }
+
 .top-right a {
     color: rgb(238, 77, 45);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
+
 .background {
-    height: calc(100vh - 60px);
+    height: calc(100vh - 3.75rem);
     background: rgb(255, 79, 46);
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .login-card {
-    width: 420px;
+    width: 26.25rem;
     background: rgb(245, 245, 245);
-    padding: 40px;
-    border-radius: 8px;
+    padding: 2.5rem;
+    border-radius: 0.5rem;
     text-align: center;
 
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.25rem;
 }
+
 .login-card h2 {
     font-weight: normal;
     color: rgb(51, 51, 51);
 }
+
 .login-card input {
-    padding: 12px;
-    border: 1px solid rgb(221, 221, 221);
-    font-size: 14px;
+    padding: 0.75rem;
+    border: 0.0625rem solid rgb(221, 221, 221);
+    font-size: 0.875rem; 
 }
+
 .btn-login {
     background: rgb(255, 79, 46);
-    border: 2px solid rgb(0, 0, 0);
+    border: 0.125rem solid rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     font-weight: bold;
-    padding: 12px;
+    padding: 0.75rem;
     cursor: pointer;
 }
+
 .login-links {
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .login-links a {
     text-decoration: none;
     color: rgb(59, 122, 217);
 }
+
 .divider {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
 }
+
 .line {
     flex: 1;
-    height: 1px;
+    height: 0.0625rem;
     background: rgb(204, 204, 204);
 }
+
 .divider span {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: rgb(85, 85, 85);
 }
+
 .social-login {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 0.625rem;
 }
+
 .social-btn {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 10px;
-    border: 1px solid rgb(204, 204, 204);
+    gap: 0.625rem;
+    padding: 0.625rem;
+    border: 0.0625rem solid rgb(204, 204, 204);
     background: rgb(255, 255, 255);
     cursor: pointer;
 }
+
 .social-btn img {
-    width: 18px;
+    width: 1.125rem;
 }
+
 .register {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: rgb(136, 136, 136);
 }
+
 .register span {
     color: rgb(255, 79, 46);
     cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
 }
