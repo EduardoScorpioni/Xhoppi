@@ -9,60 +9,60 @@
 
     <body>
         <?php include "header.php"?>
-        <div class="pagina">
-            <div class="produto-card">
-                <div class="galeria">
-                    <div class="miniaturas">
-                        <div class="thumb active">
+        <section class="pagina">
+            <section class="produto-card">
+                <section class="galeria">
+                    <section class="miniaturas">
+                        <section class="thumb active">
                             <img src="img/produto1.png"/>
-                        </div>
-                        <div class="thumb">
+                        </section>
+                        <section class="thumb">
                             <img src="img/produto2.png"/>
-                        </div>
-                        <div class="thumb">
+                        </section>
+                        <section class="thumb">
                             <img src="img/produto3.png"/>
-                        </div>
-                        <div class="thumb">
+                        </section>
+                        <section class="thumb">
                             <img src="img/produto4.png"/>
-                        </div>
-                        <div class="thumb">
+                        </section>
+                        <section class="thumb">
                             <img src="img/produto5.png"/>
-                        </div>
-                    </div>
-                    <div class="imagem-principal">
+                        </section>
+                    </section>
+                    <section class="imagem-principal">
                         <img src="img/produto1.png" alt="Camiseta Desenvolvedor Front-End CSS" />
-                    </div>
-                </div>
-                <div class="produto-info">
+                    </section>
+                </section>
+                <section class="produto-info">
                     <h1 class="produto-titulo">Camisa Desenvolvedor Front-End CSS</h1>
                     <p class="preco">R$56,90</p>
                     <p class="estoque">171 peças disponíveis</p>
                     <hr/>
-                    <div>
+                    <section>
                         <p class="label-opcao">Modelos:</p>
-                        <div class="opcoes-cor">
+                        <section class="opcoes-cor">
                             <button class="btn-cor active">Preto</button>
                             <button class="btn-cor">Azul</button>
                             <button class="btn-cor">Verde</button>
                             <button class="btn-cor">Cinza</button>
                             <button class="btn-cor">Rosa</button>
-                        </div>
-                    </div>
+                        </section>
+                    </section>
                     <hr/>
-                    <div>
+                    <section>
                         <p class="label-opcao">Tamanhos:</p>
-                        <div class="opcoes-tamanho">
+                        <section class="opcoes-tamanho">
                             <button class="btn-tamanho active">P</button>
                             <button class="btn-tamanho">M</button>
                             <button class="btn-tamanho">G</button>
                             <button class="btn-tamanho">GG</button>
-                        </div>
-                    </div>
+                        </section>
+                    </section>
                     <p class="tamanho-selecionado">Tamanho Selecionado:<span>P</span></p>
                     <button class="btn-comprar">Comprar Agora</button>
-                </div>
-            </div>
-        </div>
+                </section>
+            </section>
+        </section>
         <?php include "footer.php"?>
     </body>
 </html>

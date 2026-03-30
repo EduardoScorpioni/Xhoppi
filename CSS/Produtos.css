@@ -10,8 +10,15 @@ body{
     padding: 20px;
     width: 70%;
     margin: 0 auto;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
-
+.titulo-secao {
+    grid-column: 1 / -1; /* ocupa todas as colunas */
+    text-align: center;
+    color: #ff5722;
+    margin-bottom: 10px;
+}
 .card{
     background-color: rgb(255, 255, 255);
     padding: 10px;
@@ -28,8 +35,9 @@ body{
 
 .titulo {
     font-size: 14px;
-    color: #333;
+    color: #000000;
     margin: 10px 0;
+    font-weight: bold;
 }
 
 .info {
