@@ -31,6 +31,7 @@ body{
 }
 .coluna i{
     margin-top: 10px;
+    color: #000000;
 }
 .imagens{
     display: grid;

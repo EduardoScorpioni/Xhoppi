@@ -25,6 +25,7 @@ body{
 .card img {
     width: 100%;
 }
+
 .titulo {
     font-size: 14px;
     color: #333;
@@ -33,10 +34,17 @@ body{
 
 .info {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; 
+    gap: 5px;
+}
+.detalhes p {
+    font-size: 14px;
+    margin: 4px 0;
 }
 
+.detalhes strong {
+    font-weight: bold;
+}
 .preco {
     color: #ff5722;
     font-weight: bold;
@@ -49,7 +57,7 @@ body{
 .titulo-secao {
     text-align: center;
     background-color: rgb(255, 255, 255);
-    width: 72.1%;
+    width: 73.1%;
     color: #ff5722;
     margin: 0 auto;
     position: relative;

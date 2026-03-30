@@ -18,10 +18,10 @@
         </header>
         <div class="conteiner">
             <div class="card-redefinir">
-                <a href="login.html" class="voltar">&#8592;</a>
+                <a href="login.html" class="voltar">←</a>
                 <h2>Redefinir Senha</h2>
                 <input type="email" placeholder="Email">
-                <button class="btn-enviar">Enviar</button>
+                <a href="index.php"><button class="btn-enviar" >Enviar</button></a>
             </div>
         </div>
         <?php include "footer.php"?>
