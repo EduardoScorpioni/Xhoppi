@@ -31,6 +31,15 @@
                     <li><a href="">Ver Clientes</a></li>
                     <li><a href="">Ver Funcionarios</a></li>
                     <li><a href="Produtos.php">Ver Produtos</a></li>
+                    <li class="dropdown">
+                    <a href="#">Admin ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="cadastroLojas.php">Cadastrar Loja</a></li>
+                        <li><a href="verLojas.php">Ver Lojas</a></li>
+                        <li><a href="cadastroCupons.php">Cadastrar Cupom</a></li>
+                        <li><a href="verCupons.php">Ver Cupons</a></li>
+                    </ul>
+                </li>               
                 </ul>
         </section>
     </header>

@@ -86,4 +86,26 @@ header .navBar{
     background-color: rgb(119, 119, 119);;
 }
 
+.dropdown {
+    position: relative;
+  
+}
+
+
+.dropdown-menu {
+    display: none !important; 
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgb(251, 119, 48);
+    min-width: 180px;
+    border-radius: 5px;
+    z-index: 1000; 
+   
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block !important;
+}
 
