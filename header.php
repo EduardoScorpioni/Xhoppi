@@ -23,7 +23,7 @@
             
         <section class = navBar>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="">Cadastro Cliente</a></li>
                     <li><a href="">Cadastro Funcionario</a></li>
                     <li><a href="">Cadastro Produto</a></li>
