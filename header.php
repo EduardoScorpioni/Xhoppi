@@ -28,8 +28,8 @@
                     <li><a href="cadastroCliente.php">Cadastro Cliente</a></li>
                     <li><a href="cadastroFuncionario.php">Cadastro Funcionario</a></li>
                     <li><a href="cadastroProduto.php">Cadastro Produto</a></li>
-                    <li><a href="">Ver Clientes</a></li>
-                    <li><a href="">Ver Funcionarios</a></li>
+                    <li><a href="verClientes.php">Ver Clientes</a></li>
+                    <li><a href="verFuncionario.php">Ver Funcionarios</a></li>
                     <li><a href="Produtos.php">Ver Produtos</a></li>
                     <li class="dropdown">
                     <a href="#">Admin ▼</a>

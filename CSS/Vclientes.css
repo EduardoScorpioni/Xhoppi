@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.pagina{
+    color: #222;
+}
+.clientes-card{
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+.clientes-titulo{
+    font-size: 1.4rem;
+    color: #222;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.tabela{
+    width: 100%;
+    border-collapse: collapse;
+}
+.tabela th{
+    text-align: left;
+    font-size: 0.85rem;
+    color: #222;
+    padding: 1%;
+    border-bottom: 0.06rem solid #eee;
+}
+.tabela td{
+    padding: 1rem;
+    font-size: 0.9rem;
+    border-bottom: 0.06rem solid #eee;
+}

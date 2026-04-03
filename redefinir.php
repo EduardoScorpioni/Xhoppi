@@ -7,23 +7,23 @@
     </head>
     <body>
         <header class="topbar">
-            <div class="top-left">
+            <section class="top-left">
                 <img src="img/logo.png" class="logo">
                 <span class="brand">Xhopii</span>
                 <span class="enter">Entre</span>
-            </div>
-            <div class="top-right">
+            </section>
+            <section class="top-right">
                 <a href="#">Precisa de ajuda?</a>
-            </div>
+            </section>
         </header>
-        <div class="conteiner">
-            <div class="card-redefinir">
+        <section class="conteiner">
+            <section class="card-redefinir">
                 <a href="login.html" class="voltar">←</a>
                 <h2>Redefinir Senha</h2>
                 <input type="email" placeholder="Email">
                 <a href="index.php"><button class="btn-enviar" >Enviar</button></a>
-            </div>
-        </div>
+            </section>
+        </section>
         <?php include "footer.php"?>
     </body>
 </html>
