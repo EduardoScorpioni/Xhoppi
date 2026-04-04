@@ -1,0 +1,65 @@
+.pagina{
+    max-width: 70rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+.lojas-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.loja-card{
+    background: #fff;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.loja-card:hover{
+    transform: translateY(-5px);
+}
+
+
+.loja-card img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+
+.loja-info{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+
+.loja-nome{
+    font-size: 1.2rem;
+    color: #222;
+}
+
+
+.loja-desc{
+    font-size: 0.9rem;
+    color: #777;
+}
+
+
+.btn-ver-loja{
+    margin-top: 0.5rem;
+    padding: 0.6rem;
+    background-color: #f26522;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+

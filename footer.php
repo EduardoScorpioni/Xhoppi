@@ -58,9 +58,11 @@
 
         <section class="coluna">
         <h3>Atendimento ao Cliente</h3>
-        <img src="img/App/Qr.png" alt="">
-        <img src="img/App/play.png" alt="">
-        <img src="img/App/apple.png" alt="">
+        <section class="imagens2">
+        <img src="img/App/Qr.png" alt="" class="img-qr">
+        <img src="img/App/play.png" alt="" class="img-play" >
+        <img src="img/App/apple.png" alt="" class="img-apple">
+        </section>
         </section>
         
         <section class = "copy">

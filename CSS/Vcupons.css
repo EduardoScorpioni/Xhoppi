@@ -4,44 +4,48 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 .pagina{
     color: #222;
     padding: 20px;
 }
-.funcionario-card{
+
+
+.cupom-card{
     background-color: #fff;
     border-radius: 0.5rem;
     padding: 2rem;
 }
-.funcionario-titulo{
+
+
+.cupom-titulo{
     font-size: 1.4rem;
     color: #222;
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
 }
+
+
 .tabela{
     width: 100%;
     border-collapse: collapse;
     overflow: hidden;
     border-radius: 8px;
 }
+
 .tabela thead{
     background-color: rgb(251, 119, 48);
     color: #ffffff;
 }
+
 .tabela th{
     text-align: left;
     font-size: 0.85rem;
-    color: #222;
     padding: 1rem;
-    border-bottom: 0.06rem solid #eee;
+    border-bottom: 1px solid #eee;
 }
-.tabela td{
-    padding: 1rem;
-    font-size: 0.9rem;
-    border-bottom: 0.06rem solid #eee;
-}
+
 .tabela td{
     padding: 12px;
     font-size: 0.9rem;
@@ -55,4 +59,24 @@
 .tabela tbody tr:hover{
     background-color: #ffbd66;
     transition: 0.2s;
+}
+
+
+.cupom{
+    background-color: #fff3e0;
+    color: #f26522;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
+.ativo{
+    color: rgb(255, 6, 6);
+    font-weight: bold;
+}
+
+.expirado{
+    color: rgb(255, 0, 0);
+    font-weight: bold;
 }

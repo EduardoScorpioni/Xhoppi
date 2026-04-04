@@ -6,6 +6,7 @@
 }
 .pagina{
     color: #222;
+    padding: 20px;
 }
 .clientes-card{
     background-color: #fff;
@@ -22,12 +23,18 @@
 .tabela{
     width: 100%;
     border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
+}
+.tabela thead{
+    background-color: rgb(251, 119, 48);
+    color: #ffffff;
 }
 .tabela th{
     text-align: left;
     font-size: 0.85rem;
     color: #222;
-    padding: 1%;
+    padding: 1rem;
     border-bottom: 0.06rem solid #eee;
 }
 .tabela td{
@@ -35,3 +42,18 @@
     font-size: 0.9rem;
     border-bottom: 0.06rem solid #eee;
 }
+.tabela td{
+    padding: 12px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #eee;
+}
+
+.tabela tbody tr:nth-child(even){
+    background-color: #f9f9f9;
+}
+
+.tabela tbody tr:hover{
+    background-color: #ffbd66;
+    transition: 0.2s;
+}
+

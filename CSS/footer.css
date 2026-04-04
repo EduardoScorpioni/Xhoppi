@@ -44,7 +44,7 @@ body{
     height: 4vh;
 }
 .copy {
-    grid-column: 1 / -1; /* ocupa todas as colunas */
+    grid-column: 1 / -1; 
     margin-top: 20px;
     color: #000000;
     
@@ -53,6 +53,38 @@ body{
 .copy hr {
     border: none;
     height: 1px;
-    background-color: #000000; /* cor da linha */
+    background-color: #000000; 
     margin-bottom: 10px;
+}
+.imagens{
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    gap: 10px;
+    align-items: center;
+}
+.imagens2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 45%;
+    gap: 20px;
+    flex-wrap: wrap; /* quebra linha no celular */
+}
+.coluna img{
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+.img-qr{
+    width: 120px;
+}
+
+
+.img-play{
+    width: 110px;
+}
+
+
+.img-apple{
+    width: 110px;
 }

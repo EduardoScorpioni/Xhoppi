@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="CSS/Vfuncionario.css">
         <title>Ver Funcionario</title>
     </head>
+    
     <body>
         <?php include 'header.php'?>
         <section class="pagina">
@@ -25,7 +26,7 @@
                             <td>1</td>
                             <td>Igor Marques</td>
                             <td>igor@gmail.com</td>
-                            <td>(18)99999-9999</td>
+                          <td>(18)99999-9999</td>
                         </tr>
                         <tr>
                             <td>2</td>
