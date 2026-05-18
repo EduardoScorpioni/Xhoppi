@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-<link rel="stylesheet" href="CSS/footer.css">
-<link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+<link rel="stylesheet" href="/Git/Xhoppi/CSS/footer.css">
+<link rel="shortcut icon" href="/Git/Xhoppi/img/logo.png" type="image/x-icon">
 <title>Document</title>
 </head>
 <body>
@@ -36,12 +36,12 @@
         <section class="coluna">
         <h3>PAGAMENTO</h3>
             <section class = "imagens">
-                <img src="img/Pagamento/pix.png" alt="">
-                <img src="img/Pagamento/boleto.png" alt="">
-                <img src="img/Pagamento/elo.png" alt="">
-                <img src="img/Pagamento/master.png" alt="">
-                <img src="img/Pagamento/hiper.png" alt="">
-                <img src="img/Pagamento/visa.png" alt="">
+                <img src="/Git/Xhoppi/img/Pagamento/pix.png" alt="">
+                <img src="/Git/Xhoppi/img/Pagamento/boleto.png" alt="">
+                <img src="/Git/Xhoppi/img/Pagamento/elo.png" alt="">
+                <img src="/Git/Xhoppi/img/Pagamento/master.png" alt="">
+                <img src="/Git/Xhoppi/img/Pagamento/hiper.png" alt="">
+                <img src="/Git/Xhoppi/img/Pagamento/visa.png" alt="">
             </section>
         </section>
 
@@ -59,9 +59,9 @@
         <section class="coluna">
         <h3>Atendimento ao Cliente</h3>
         <section class="imagens2">
-        <img src="img/App/Qr.png" alt="" class="img-qr">
-        <img src="img/App/play.png" alt="" class="img-play" >
-        <img src="img/App/apple.png" alt="" class="img-apple">
+        <img src="/Git/Xhoppi/img/App/Qr.png" alt="" class="img-qr">
+        <img src="/Git/Xhoppi/img/App/play.png" alt="" class="img-play" >
+        <img src="/Git/Xhoppi/img/App/apple.png" alt="" class="img-apple">
         </section>
         </section>
         

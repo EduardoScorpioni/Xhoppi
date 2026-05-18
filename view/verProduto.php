@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="CSS/verProduto.css">
+  <link rel="stylesheet" href="../CSS/verProduto.css">
   <title>Xhopii - Produto</title>
 </head>
 
@@ -14,23 +14,23 @@
                 <section class="galeria">
                     <section class="miniaturas">
                         <section class="thumb active">
-                            <img src="img/produto1.png"/>
+                            <img src="../img/produto1.png"/>
                         </section>
                         <section class="thumb">
-                            <img src="img/produto2.png"/>
+                            <img src="../img/produto2.png"/>
                         </section>
                         <section class="thumb">
-                            <img src="img/produto3.png"/>
+                            <img src="../img/produto3.png"/>
                         </section>
                         <section class="thumb">
-                            <img src="img/produto4.png"/>
+                            <img src="../img/produto4.png"/>
                         </section>
                         <section class="thumb">
-                            <img src="img/produto5.png"/>
+                            <img src="../img/produto5.png"/>
                         </section>
                     </section>
                     <section class="imagem-principal">
-                        <img src="img/produto1.png" alt="Camiseta Desenvolvedor Front-End CSS" />
+                        <img src="../img/produto1.png" alt="Camiseta Desenvolvedor Front-End CSS" />
                     </section>
                 </section>
                 <section class="produto-info">

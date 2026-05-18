@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Xhopii - Cadastro Loja</title>
-    <link rel="stylesheet" href="CSS/Clojas.css">
+    <link rel="stylesheet" href="../CSS/Clojas.css">
 </head>
 <body>
     <?php include_once "header.php" ?>

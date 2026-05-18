@@ -3,12 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <title>Xhopii - Login</title>
-        <link rel="stylesheet" href="CSS/redefinir.css">
+        <link rel="stylesheet" href="../CSS/redefinir.css">
     </head>
     <body>
         <header class="topbar">
             <section class="top-left">
-                <img src="img/logo.png" class="logo">
+                <img src="../img/logo.png" class="logo">
                 <span class="brand">Xhopii</span>
                 <span class="enter">Entre</span>
             </section>
@@ -21,7 +21,7 @@
                 <a href="login.html" class="voltar">←</a>
                 <h2>Redefinir Senha</h2>
                 <input type="email" placeholder="Email">
-                <a href="index.php"><button class="btn-enviar" >Enviar</button></a>
+                <a href="../index.php"><button class="btn-enviar" >Enviar</button></a>
             </section>
         </section>
         <?php include "footer.php"?>

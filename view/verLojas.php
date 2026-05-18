@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="CSS/VLojas.css">
+  <link rel="stylesheet" href="../CSS/VLojas.css">
   <title>Xhopii - Produto</title>
 </head>
 
@@ -14,7 +14,7 @@
 
   
         <section class="loja-card">
-            <img src="img/loja.png" alt="Loja 1">
+            <img src="../img/loja.png" alt="Loja 1">
 
             <section class="loja-info">
                 <h2 class="loja-nome">Loja Tech Store</h2>
@@ -25,7 +25,7 @@
 
   
         <section class="loja-card">
-            <img src="img/loja.png" alt="Loja 2">
+            <img src="../img/loja.png" alt="Loja 2">
 
             <section class="loja-info">
                 <h2 class="loja-nome">Moda Style</h2>
@@ -36,7 +36,7 @@
 
 
         <section class="loja-card">
-            <img src="img/loja.png" alt="Loja 3">
+            <img src="../img/loja.png" alt="Loja 3">
 
             <section class="loja-info">
                 <h2 class="loja-nome">Casa & Decoração</h2>
@@ -45,7 +45,7 @@
             </section>
         </section>
         <section class="loja-card">
-            <img src="img/loja.png" alt="Loja 1">
+            <img src="../img/loja.png" alt="Loja 1">
 
             <section class="loja-info">
                 <h2 class="loja-nome">Loja Tech Store</h2>
@@ -56,7 +56,7 @@
 
   
         <section class="loja-card">
-            <img src="img/loja.png" alt="Loja 2">
+            <img src="../img/loja.png" alt="Loja 2">
 
             <section class="loja-info">
                 <h2 class="loja-nome">Moda Style</h2>
@@ -67,7 +67,7 @@
 
 
         <section class="loja-card">
-            <img src="img/loja.png" alt="Loja 3">
+            <img src="../img/loja.png" alt="Loja 3">
 
             <section class="loja-info">
                 <h2 class="loja-nome">Casa & Decoração</h2>

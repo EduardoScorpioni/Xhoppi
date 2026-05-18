@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Xhopii - Login</title>
-        <link rel="stylesheet" href="CSS/Cfuncionario.css">
+        <link rel="stylesheet" href="../CSS/Cfuncionario.css">
     </head>
     <body>
         <?php include_once "header.php" ?>

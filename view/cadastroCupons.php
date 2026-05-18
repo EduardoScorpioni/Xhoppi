@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Xhopii - Cadastro Cupom</title>
-    <link rel="stylesheet" href="CSS/Ccupons.css">
+    <link rel="stylesheet" href="../CSS/Ccupons.css">
 </head>
 <body>
     <?php include_once "header.php" ?>

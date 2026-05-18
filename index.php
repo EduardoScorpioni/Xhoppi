@@ -9,7 +9,7 @@
         <title>Document</title>
     </head>
     <body>
-      <?php include "header.php"?>
+      <?php include "view/header.php"?>
         <section id="carouselExampleIndicators" class="carousel slide">
             <section class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -49,7 +49,7 @@
           <section class = "produtos">
             
                 <section class="card">
-                <a href="verProduto.php">
+                <a href="view/verProduto.php">
                   <img src="img/produto1.png" alt="">
                   <p class="titulo">Camisa de Desenvolvedor Front-end</p>
                     <section class = "info">
@@ -61,7 +61,7 @@
 
                
                 <section class="card">
-                <a href="verProduto.php">
+                <a href="view/verProduto.php">
                   <img src="img/produto1.png" alt="">
                   <p class="titulo">Camisa de Desenvolvedor Front-end</p>
                     <section class = "info">
@@ -73,7 +73,7 @@
 
                
                 <section class="card">
-                <a href="verProduto.php">
+                <a href="view/verProduto.php">
                   <img src="img/produto1.png" alt="">
                   <p class="titulo">Camisa de Desenvolvedor Front-end</p>
                     <section class = "info">
@@ -85,7 +85,7 @@
 
                 
                 <section class="card">
-                <a href="verProduto.php">
+                <a href="view/verProduto.php">
                   <img src="img/produto1.png" alt="">
                   <p class="titulo">Camisa de Desenvolvedor Front-end</p>
                     <section class = "info">
@@ -97,7 +97,7 @@
                 
                 
                 <section class="card">
-                <a href="verProduto.php">
+                <a href="view/verProduto.php">
                   <img src="img/produto1.png" alt="">
                   <p class="titulo">Camisa de Desenvolvedor Front-end</p>
                     <section class = "info">
@@ -109,7 +109,7 @@
 
                 
                 <section class="card">
-                <a href="verProduto.php">
+                <a href="view/verProduto.php">
                   <img src="img/produto1.png" alt="">
                   <p class="titulo">Camisa de Desenvolvedor Front-end</p>
                     <section class = "info">
@@ -121,7 +121,7 @@
 
                
                 <section class="card">
-                <a href="verProduto.php">
+                <a href="view/verProduto.php">
                   <img src="img/produto1.png" alt="">
                   <p class="titulo">Camisa de Desenvolvedor Front-end</p>
                     <section class = "info">
@@ -133,7 +133,7 @@
 
                 
                 <section class="card">
-                <a href="verProduto.php">
+                <a href="view/verProduto.php">
                   <img src="img/produto1.png" alt="">
                   <p class="titulo">Camisa de Desenvolvedor Front-end</p>
                     <section class = "info">
@@ -145,7 +145,7 @@
 
                 
                 <section class="card">
-                <a href="verProduto.php">
+                <a href="view/verProduto.php">
                   <img src="img/produto1.png" alt="">
                   <p class="titulo">Camisa de Desenvolvedor Front-end</p>
                     <section class = "info">
@@ -157,7 +157,7 @@
 
                 
                 <section class="card">
-                <a href="verProduto.php">
+                <a href="view/verProduto.php">
                   <img src="img/produto1.png" alt="">
                   <p class="titulo">Camisa de Desenvolvedor Front-end</p>
                     <section class = "info">
@@ -169,7 +169,7 @@
                 
                 
                 <section class="card">
-                <a href="verProduto.php">
+                <a href="view/verProduto.php">
                   <img src="img/produto1.png" alt="">
                   <p class="titulo">Camisa de Desenvolvedor Front-end</p>
                     <section class = "info">
@@ -181,7 +181,7 @@
                 
                 
                 <section class="card">
-                <a href="verProduto.php">
+                <a href="view/verProduto.php">
                   <img src="img/produto1.png" alt="">
                   <p class="titulo">Camisa de Desenvolvedor Front-end</p>
                     <section class = "info">
@@ -196,6 +196,6 @@
           </section>
         
         
-          <?php include_once "footer.php" ?> 
+          <?php include_once "view/footer.php" ?> 
       </body>
 </html>
