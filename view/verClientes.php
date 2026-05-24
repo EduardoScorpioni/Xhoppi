@@ -1,3 +1,14 @@
+<?php
+require_once dirname(__DIR__) . "/controller/Controller.php";
+
+$controller = new Controller();
+$clientes = $controller->listarClientes();
+
+function e($valor)
+{
+    return htmlspecialchars($valor, ENT_QUOTES, "UTF-8");
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -7,7 +18,7 @@
         <title>Ver Clientes</title>
     </head>
     <body>
-        <?php include 'header.php'?>
+        <?php include "header.php"?>
         <section class="pagina">
             <section class="clientes-card">
                 <h2 class="clientes-titulo">Ver Clientes</h2>
@@ -18,49 +29,23 @@
                             <th>Nome</th>
                             <th>Email</th>
                             <th>Telefone</th>
+                            <th>Maior de idade</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Igor Marques</td>
-                            <td>igor@gmail.com</td>
-                            <td>(18)99999-9999</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Eduardo Scorpioni</td>
-                            <td>edu@email.com</td>
-                            <td>(11) 98888-8888</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Igor Marques</td>
-                            <td>igor@gmail.com</td>
-                            <td>(18)99999-9999</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Eduardo Scorpioni</td>
-                            <td>edu@email.com</td>
-                            <td>(11) 98888-8888</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Igor Marques</td>
-                            <td>igor@gmail.com</td>
-                            <td>(18)99999-9999</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Eduardo Scorpioni</td>
-                            <td>edu@email.com</td>
-                            <td>(11) 98888-8888</td>
-                        </tr>
+                        <?php foreach ($clientes as $cliente) { ?>
+                            <tr>
+                                <td><?php echo (int) $cliente["id_cliente"]; ?></td>
+                                <td><?php echo e($cliente["nomeCompleto"]); ?></td>
+                                <td><?php echo e($cliente["email"]); ?></td>
+                                <td><?php echo e($cliente["telefone"]); ?></td>
+                                <td><?php echo e($cliente["maiorIdade"]); ?></td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </section>
         </section>
-        <?php include 'footer.php'?>
+        <?php include "footer.php"?>
     </body>
 </html>

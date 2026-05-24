@@ -1,33 +1,46 @@
+<?php
+$status = isset($_GET["status"]) ? $_GET["status"] : "";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
-        <title>Xhopii - Login</title>
+        <title>Xhopii - Cadastro Cliente</title>
         <link rel="stylesheet" href="../CSS/Ccliente.css">
     </head>
     <body>
         <?php include_once "header.php" ?>
-        <section  class="card">
-            <h2>Cadastrar Clientes</h2>
-            <input type="text" placeholder ="Nome">
-            <input type="text" placeholder ="Sobrenome">
-            <input  type="text" placeholder ="CPF">
-            <input type="date" >
-            <input type="text" placeholder ="Telefone">
-            <input type="email" placeholder ="E-mail">
-            <input type="password" placeholder ="Senha">
-            <h3>Selecione a foto de Perfil</h3>
-           <section class="file-container">
+
+        <form class="card" action="../processamento/Processamento.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="acao" value="cadastrar_cliente">
+            <h2>Cadastrar Cliente</h2>
+
+            <?php if ($status == "sucesso") { ?>
+                <p>Cliente cadastrado com sucesso.</p>
+            <?php } elseif ($status == "erro") { ?>
+                <p>Nao foi possivel cadastrar o cliente.</p>
+            <?php } ?>
+
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="text" name="sobrenome" placeholder="Sobrenome" required>
+            <input type="text" name="cpf" placeholder="CPF" required>
+            <input type="date" name="dataNascimento" required>
+            <input type="text" name="telefone" placeholder="Telefone" required>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+
+            <h3>Selecione a foto de perfil</h3>
+            <section class="file-container">
                 <label class="file-label">
                     Escolher arquivo
-                    <input type="file" class="file"">
+                    <input type="file" name="fotoPerfil" class="file">
                 </label>
                 <span id="file-name">Nenhum arquivo escolhido</span>
-                </section>
-            <button>
-                Cadastrar
-            </button>
-        </section>
+            </section>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
         <?php include "footer.php"?>
     </body>
 </html>
