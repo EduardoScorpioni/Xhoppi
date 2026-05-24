@@ -1,3 +1,29 @@
+<?php
+require_once __DIR__ . "/controller/Controller.php";
+
+$controller = new Controller();
+$produtos = $controller->listarProdutos();
+
+function escaparIndex($valor){
+  return htmlspecialchars($valor, ENT_QUOTES, "UTF-8");
+}
+
+function moedaIndex($valor){
+  return "R$ " . number_format((float) $valor, 2, ",", ".");
+}
+
+function imagemProdutoIndex($imagem){
+  if(empty($imagem)){
+    return "img/produto1.png";
+  }
+  if(strpos($imagem, "http") === 0){
+    return $imagem;
+  }
+
+  return ltrim($imagem, "/");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -47,152 +73,24 @@
           <h2 class="titulo-secao">DESCOBERTAS DO DIA</h2>
           <hr class ="linha-capenga">
           <section class = "produtos">
-            
-                <section class="card">
-                <a href="view/verProduto.php">
-                  <img src="img/produto1.png" alt="">
-                  <p class="titulo">Camisa de Desenvolvedor Front-end</p>
-                    <section class = "info">
-                      <span class ="preco"> R$998,98</span>
-                      <span class ="estoque"> 171 disponiveis </span>
-                    </section>
-                    </a>
-                </section>
-
-               
-                <section class="card">
-                <a href="view/verProduto.php">
-                  <img src="img/produto1.png" alt="">
-                  <p class="titulo">Camisa de Desenvolvedor Front-end</p>
-                    <section class = "info">
-                      <span class ="preco"> R$998,98</span>
-                      <span class ="estoque"> 171 disponiveis </span>
-                    </section>
-                    </a>
-                </section>
-
-               
-                <section class="card">
-                <a href="view/verProduto.php">
-                  <img src="img/produto1.png" alt="">
-                  <p class="titulo">Camisa de Desenvolvedor Front-end</p>
-                    <section class = "info">
-                      <span class ="preco"> R$998,98</span>
-                      <span class ="estoque"> 171 disponiveis </span>
-                    </section>
-                    </a>
-                </section>
-
-                
-                <section class="card">
-                <a href="view/verProduto.php">
-                  <img src="img/produto1.png" alt="">
-                  <p class="titulo">Camisa de Desenvolvedor Front-end</p>
-                    <section class = "info">
-                      <span class ="preco"> R$998,98</span>
-                      <span class ="estoque"> 171 disponiveis </span>
-                    </section>
-                    </a>
-                </section>
-                
-                
-                <section class="card">
-                <a href="view/verProduto.php">
-                  <img src="img/produto1.png" alt="">
-                  <p class="titulo">Camisa de Desenvolvedor Front-end</p>
-                    <section class = "info">
-                      <span class ="preco"> R$998,98</span>
-                      <span class ="estoque"> 171 disponiveis </span>
-                    </section>
-                    </a>
-                </section>
-
-                
-                <section class="card">
-                <a href="view/verProduto.php">
-                  <img src="img/produto1.png" alt="">
-                  <p class="titulo">Camisa de Desenvolvedor Front-end</p>
-                    <section class = "info">
-                      <span class ="preco"> R$998,98</span>
-                      <span class ="estoque"> 171 disponiveis </span>
-                    </section>
-                    </a>
-                </section>
-
-               
-                <section class="card">
-                <a href="view/verProduto.php">
-                  <img src="img/produto1.png" alt="">
-                  <p class="titulo">Camisa de Desenvolvedor Front-end</p>
-                    <section class = "info">
-                      <span class ="preco"> R$998,98</span>
-                      <span class ="estoque"> 171 disponiveis </span>
-                    </section>
-                    </a>
-                </section>
-
-                
-                <section class="card">
-                <a href="view/verProduto.php">
-                  <img src="img/produto1.png" alt="">
-                  <p class="titulo">Camisa de Desenvolvedor Front-end</p>
-                    <section class = "info">
-                      <span class ="preco"> R$998,98</span>
-                      <span class ="estoque"> 171 disponiveis </span>
-                    </section>
-                    </a>
-                </section>
-
-                
-                <section class="card">
-                <a href="view/verProduto.php">
-                  <img src="img/produto1.png" alt="">
-                  <p class="titulo">Camisa de Desenvolvedor Front-end</p>
-                    <section class = "info">
-                      <span class ="preco"> R$998,98</span>
-                      <span class ="estoque"> 171 disponiveis </span>
-                    </section>
-                    </a>
-                </section>
-
-                
-                <section class="card">
-                <a href="view/verProduto.php">
-                  <img src="img/produto1.png" alt="">
-                  <p class="titulo">Camisa de Desenvolvedor Front-end</p>
-                    <section class = "info">
-                      <span class ="preco"> R$998,98</span>
-                      <span class ="estoque"> 171 disponiveis </span>
-                    </section>
-                    </a>
-                </section>
-                
-                
-                <section class="card">
-                <a href="view/verProduto.php">
-                  <img src="img/produto1.png" alt="">
-                  <p class="titulo">Camisa de Desenvolvedor Front-end</p>
-                    <section class = "info">
-                      <span class ="preco"> R$998,98</span>
-                      <span class ="estoque"> 171 disponiveis </span>
-                    </section>
-                    </a>
-                </section>
-                
-                
-                <section class="card">
-                <a href="view/verProduto.php">
-                  <img src="img/produto1.png" alt="">
-                  <p class="titulo">Camisa de Desenvolvedor Front-end</p>
-                    <section class = "info">
-                      <span class ="preco"> R$998,98</span>
-                      <span class ="estoque"> 171 disponiveis </span>
-                    </section>
-                    </a>
-                </section>
-
-                
-         
+            <?php foreach($produtos as $produto) {?>
+              <section class="card">
+                <a href="view/verProduto.php?id=<?php echo (int) $produto["id_produto"];?>">
+                  <img src="<?php echo escaparIndex(imagemProdutoIndex($produto["imagem"]));?>" alt="<?php echo escaparIndex($produto["nome"]);?>">
+                  <p class="titulo">
+                    <?php echo escaparIndex($produto["nome"]);?>
+                  </p>
+                  <section class="info">
+                    <span class="preco">
+                      <?php echo moedaIndex($produto["valor"]); ?>
+                    </span>
+                    <span class="estoque">
+                      <?php echo (int) $produto["quantidade"]; ?> disponiveis
+                    </span>
+                  </section>
+                </a>
+              </section>
+            <?php }?>
           </section>
         
         
