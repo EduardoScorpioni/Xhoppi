@@ -1,3 +1,23 @@
+<?php
+require_once dirname(__DIR__) . "/controller/Controller.php";
+
+$controller = new Controller();
+$cupons = $controller->listarCupons();
+
+function e($valor)
+{
+    return htmlspecialchars($valor, ENT_QUOTES, "UTF-8");
+}
+
+function dataBR($data)
+{
+    if (empty($data)) {
+        return "";
+    }
+
+    return date("d/m/Y", strtotime($data));
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,52 +28,41 @@
 </head>
 
 <body>
-    <?php include 'header.php'?>
+    <?php include "header.php"?>
 
     <section class="pagina">
-    <section class="cupom-card">
-        <h2 class="cupom-titulo">Cupons Disponíveis</h2>
+        <section class="cupom-card">
+            <h2 class="cupom-titulo">Cupons Disponiveis</h2>
 
-        <table class="tabela">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Código</th>
-                    <th>Desconto</th>
-                    <th>Validade</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
+            <table class="tabela">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Codigo</th>
+                        <th>Desconto</th>
+                        <th>Validade</th>
+                        <th>Quantidade</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td><span class="cupom">XHOP10</span></td>
-                    <td>10%</td>
-                    <td>30/04/2026</td>
-                    <td class="ativo">Ativo</td>
-                </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td><span class="cupom">FRETEGRATIS</span></td>
-                    <td>Frete Grátis</td>
-                    <td>15/04/2026</td>
-                    <td class="ativo">Ativo</td>
-                </tr>
-
-                <tr>
-                    <td>3</td>
-                    <td><span class="cupom">PROMO20</span></td>
-                    <td>20%</td>
-                    <td>01/03/2026</td>
-                    <td class="expirado">Expirado</td>
-                </tr>
-            </tbody>
-        </table>
+                <tbody>
+                    <?php foreach ($cupons as $cupom) { ?>
+                        <?php $classeStatus = $cupom["statusCalculado"] == "Ativo" ? "ativo" : "expirado"; ?>
+                        <tr>
+                            <td><?php echo (int) $cupom["id_cupom"]; ?></td>
+                            <td><span class="cupom"><?php echo e($cupom["codigo"]); ?></span></td>
+                            <td><?php echo number_format((float) $cupom["desconto"], 2, ",", "."); ?>%</td>
+                            <td><?php echo dataBR($cupom["dataValidade"]); ?></td>
+                            <td><?php echo (int) $cupom["quantidadeDisponivel"]; ?></td>
+                            <td class="<?php echo $classeStatus; ?>"><?php echo e($cupom["statusCalculado"]); ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </section>
     </section>
-</section>
 
-    <?php include 'footer.php'?>
+    <?php include "footer.php"?>
 </body>
 </html>

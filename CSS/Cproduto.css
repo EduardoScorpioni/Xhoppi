@@ -29,7 +29,8 @@ body{
     display: flex;
     margin-right: 16%;
 }
-.card input {
+.card input,
+.card select {
     width: 60%;
     height: 45px;
     padding: 10px;

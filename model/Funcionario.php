@@ -1,25 +1,29 @@
 <?php
 
-class Cliente
+class Funcionario
 {
     private $id;
+    private $cpf;
     private $nome;
     private $sobrenome;
-    private $cpf;
     private $dataNascimento;
     private $telefone;
+    private $cargo;
+    private $salario;
     private $email;
     private $senha;
     private $fotoPerfil;
 
-    public function __construct($nome, $sobrenome, $cpf, $dataNascimento, $telefone, $email, $senha = "", $fotoPerfil = null, $id = null)
+    public function __construct($cpf, $nome, $sobrenome, $dataNascimento, $telefone, $cargo, $salario, $email, $senha = "", $fotoPerfil = null, $id = null)
     {
         $this->id = $id;
+        $this->setCpf($cpf);
         $this->setNome($nome);
         $this->setSobrenome($sobrenome);
-        $this->setCpf($cpf);
         $this->setDataNascimento($dataNascimento);
         $this->setTelefone($telefone);
+        $this->setCargo($cargo);
+        $this->setSalario($salario);
         $this->setEmail($email);
         $this->setSenha($senha);
         $this->setFotoPerfil($fotoPerfil);
@@ -33,6 +37,16 @@ class Cliente
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    public function getCpf()
+    {
+        return $this->cpf;
+    }
+
+    public function setCpf($cpf)
+    {
+        $this->cpf = trim($cpf);
     }
 
     public function getNome()
@@ -55,16 +69,6 @@ class Cliente
         $this->sobrenome = trim($sobrenome);
     }
 
-    public function getCpf()
-    {
-        return $this->cpf;
-    }
-
-    public function setCpf($cpf)
-    {
-        $this->cpf = trim($cpf);
-    }
-
     public function getDataNascimento()
     {
         return $this->dataNascimento;
@@ -83,6 +87,26 @@ class Cliente
     public function setTelefone($telefone)
     {
         $this->telefone = trim($telefone);
+    }
+
+    public function getCargo()
+    {
+        return $this->cargo;
+    }
+
+    public function setCargo($cargo)
+    {
+        $this->cargo = trim($cargo);
+    }
+
+    public function getSalario()
+    {
+        return $this->salario;
+    }
+
+    public function setSalario($salario)
+    {
+        $this->salario = (float) $salario;
     }
 
     public function getEmail()
@@ -120,21 +144,19 @@ class Cliente
         return trim($this->nome . " " . $this->sobrenome);
     }
 
-    public function verificarMaiorIdade()
+    public function calcularSalarioAnual()
     {
-        if (empty($this->dataNascimento)) {
-            return false;
-        }
+        return $this->salario * 12;
+    }
 
-        $nascimento = new DateTime($this->dataNascimento);
-        $hoje = new DateTime();
-
-        return $nascimento->diff($hoje)->y >= 18;
+    public function aplicarAumento($percentual)
+    {
+        $this->salario = $this->salario + ($this->salario * ((float) $percentual / 100));
     }
 
     public function imprimir()
     {
-        return $this->getNomeCompleto() . " - " . $this->email . " - " . $this->telefone;
+        return $this->getNomeCompleto() . " - " . $this->cargo . " - R$ " . number_format($this->salario, 2, ",", ".");
     }
 }
 

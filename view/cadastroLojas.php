@@ -1,3 +1,6 @@
+<?php
+$status = isset($_GET["status"]) ? $_GET["status"] : "";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,29 +11,35 @@
 <body>
     <?php include_once "header.php" ?>
 
-    <section class="card">
+    <form class="card" action="../processamento/Processamento.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="acao" value="cadastrar_loja">
         <h2>Cadastrar Loja</h2>
 
-        <input type="text" placeholder="Nome da Loja">
-        <input type="text" placeholder="CNPJ">
-        <input type="text" placeholder="Telefone">
-        <input type="email" placeholder="E-mail">
-        <input type="text" placeholder="Endereço">
+        <?php if ($status == "sucesso") { ?>
+            <p>Loja cadastrada com sucesso.</p>
+        <?php } elseif ($status == "erro") { ?>
+            <p>Nao foi possivel cadastrar a loja.</p>
+        <?php } ?>
+
+        <input type="text" name="nome" placeholder="Nome da Loja" required>
+        <input type="text" name="cnpj" placeholder="CNPJ" required>
+        <input type="text" name="telefone" placeholder="Telefone" required>
+        <input type="email" name="email" placeholder="E-mail" required>
+        <input type="text" name="endereco" placeholder="Endereco" required>
+        <input type="text" name="descricao" placeholder="Descricao da loja">
 
         <h3>Selecione a logo da loja</h3>
 
         <section class="file-container">
             <label class="file-label">
                 Escolher arquivo
-                <input type="file" class="file">
+                <input type="file" name="logo" class="file">
             </label>
             <span id="file-name">Nenhum arquivo escolhido</span>
         </section>
 
-        <button>
-            Cadastrar Loja
-        </button>
-    </section>
+        <button type="submit">Cadastrar Loja</button>
+    </form>
 
     <?php include "footer.php"?>
 </body>
