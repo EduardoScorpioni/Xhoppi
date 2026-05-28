@@ -105,6 +105,32 @@ class Controller
         return $this->bancoDeDados->inserirCupom($cupom);
     }
 
+    public function autenticarCliente($dados)
+    {
+    $email = $this->campo($dados, "email");
+    $senha = $this->campo($dados, "senha");
+
+    if ($email == "" || $senha == "") {
+        return false;
+    }
+
+    $cliente = $this->bancoDeDados->retornarClientePorEmail($email);
+
+    if (!$cliente) {
+        return false;
+    }
+
+    $senhaBanco = $cliente["senha"];
+
+    $senhaCorreta = password_verify($senha, $senhaBanco) || $senha == $senhaBanco;
+
+    if (!$senhaCorreta) {
+        return false;
+    }
+
+    return $cliente;
+    }
+
     public function listarClientes()
     {
         $clientes = $this->bancoDeDados->retornarClientes();

@@ -1,3 +1,6 @@
+<?php
+$status = isset($_GET["status"]) ? $_GET["status"] : "";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -16,39 +19,52 @@
                 <a href="#">Precisa de ajuda?</a>
             </section>
         </header>
+
         <main class="background">
-            <section class="login-card">
+            <form class="login-card" action="../processamento/Processamento.php" method="post">
+                <input type="hidden" name="acao" value="login">
+
                 <h2>Login</h2>
-                <input type="text" placeholder="Email">
-                <input type="password" placeholder="Senha">
-                <a href="../index.php" class="btn-login">ENTRE</a>
+
+                <?php if ($status == "erro") { ?>
+                    <p class="erro-login">E-mail ou senha inválidos.</p>
+                <?php } ?>
+
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="senha" placeholder="Senha" required>
+
+                <button type="submit" class="btn-login">ENTRE</button>
+
                 <section class="login-links">
                     <a href="redefinir.php">Esqueci minha senha</a>
                     <a href="#">Fazer login com SMS</a>
                 </section>
+
                 <section class="divider">
                     <section class="line"></section>
                     <span>OU</span>
                     <section class="line"></section>
                 </section>
+
                 <section class="social-login">
-                    <button class="social-btn">
+                    <button type="button" class="social-btn">
                         <img src="../img/facebook.png">
                         Facebook
                     </button>
-                    <button class="social-btn">
+                    <button type="button" class="social-btn">
                         <img src="../img/google.png">
                         Google
                     </button>
-                    <button class="social-btn">
+                    <button type="button" class="social-btn">
                         <img src="../img/apple.png">
                         Apple
                     </button>
                 </section>
+
                 <p class="register">
-                    Novo na Xhopii? <span>Cadastrar</span>
+                    Novo na Xhopii? <a href="cadastroCliente.php">Cadastrar</a>
                 </p>
-            </section>
+            </form>
         </main>
     </body>
 </html>

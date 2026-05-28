@@ -16,7 +16,7 @@
                 </section>
             <section class = "sair">
                 <label for="">
-                    <a href="/Git/Xhoppi/view/login.html"> Sair</a>
+                    <a href="/Git/Xhoppi/processamento/Processamento.php?acao=sair"> Sair</a>
                 </label>
             </section>
 

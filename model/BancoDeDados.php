@@ -134,6 +134,20 @@ class BancoDeDados
 
         return mysqli_stmt_execute($stmt);
     }
+    public function retornarClientePorEmail($email)
+    {
+    $conexao = $this->conectarBD();
+
+    $consulta = "SELECT * FROM cliente WHERE email = ? LIMIT 1";
+    $stmt = mysqli_prepare($conexao, $consulta);
+
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+
+    $resultado = mysqli_stmt_get_result($stmt);
+
+    return mysqli_fetch_assoc($resultado);
+    }
 
     public function retornarClientes()
     {

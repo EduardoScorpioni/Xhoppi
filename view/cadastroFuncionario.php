@@ -1,4 +1,5 @@
 <?php
+require_once dirname(__DIR__) . "/processamento/verificarLogin.php";
 $status = isset($_GET["status"]) ? $_GET["status"] : "";
 ?>
 <!DOCTYPE html>

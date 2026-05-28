@@ -18,7 +18,7 @@
         </header>
         <section class="conteiner">
             <section class="card-redefinir">
-                <a href="login.html" class="voltar">←</a>
+                <a href="login.php" class="voltar">←</a>
                 <h2>Redefinir Senha</h2>
                 <input type="email" placeholder="Email">
                 <a href="../index.php"><button class="btn-enviar" >Enviar</button></a>

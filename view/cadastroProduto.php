@@ -1,4 +1,5 @@
 <?php
+require_once dirname(__DIR__) . "/processamento/verificarLogin.php";
 require_once dirname(__DIR__) . "/controller/Controller.php";
 
 $controller = new Controller();
