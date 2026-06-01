@@ -162,6 +162,11 @@ class Controller
         return $this->bancoDeDados->retornarProdutos();
     }
 
+    public function buscarCliente($idCliente)
+    {
+        return $this->bancoDeDados->retornarClientePorId((int) $idCliente);
+    }
+
     public function buscarProduto($idProduto = null)
     {
         if ($idProduto) {
@@ -176,6 +181,93 @@ class Controller
         }
 
         return $produto;
+    }
+
+    public function finalizarCompra($dados, $idCliente)
+    {
+        $idProduto = (int) $this->campo($dados, "id_produto", 0);
+        $quantidade = (int) $this->campo($dados, "quantidade", 1);
+        $formaPagamento = $this->campo($dados, "forma_pagamento");
+        $enderecoEntrega = $this->campo($dados, "endereco_entrega");
+
+        if ($idProduto <= 0 || $idCliente <= 0 || $quantidade <= 0 || $formaPagamento == "" || $enderecoEntrega == "") {
+            return false;
+        }
+
+        return $this->bancoDeDados->finalizarCompra($idCliente, $idProduto, $quantidade, $formaPagamento, $enderecoEntrega);
+    }
+
+    public function buscarPedido($idPedido, $idCliente)
+    {
+        return $this->bancoDeDados->retornarPedidoPorId((int) $idPedido, (int) $idCliente);
+    }
+
+    public function buscarItensPedido($idPedido, $idCliente)
+    {
+        return $this->bancoDeDados->retornarItensPedido((int) $idPedido, (int) $idCliente);
+    }
+
+    public function adicionarAoCarrinho($dados, $idCliente)
+    {
+        $idProduto = (int) $this->campo($dados, "id_produto", 0);
+        $quantidade = (int) $this->campo($dados, "quantidade", 1);
+
+        if ($idCliente <= 0 || $idProduto <= 0 || $quantidade <= 0) {
+            return false;
+        }
+
+        return $this->bancoDeDados->adicionarProdutoCarrinho($idCliente, $idProduto, $quantidade);
+    }
+
+    public function listarItensCarrinho($idCliente)
+    {
+        return $this->bancoDeDados->retornarItensCarrinho((int) $idCliente);
+    }
+
+    public function atualizarCarrinho($dados, $idCliente)
+    {
+        $idItem = (int) $this->campo($dados, "id_item", 0);
+        $quantidade = (int) $this->campo($dados, "quantidade", 1);
+
+        if ($idCliente <= 0 || $idItem <= 0) {
+            return false;
+        }
+
+        return $this->bancoDeDados->atualizarItemCarrinho($idCliente, $idItem, $quantidade);
+    }
+
+    public function removerDoCarrinho($dados, $idCliente)
+    {
+        $idItem = (int) $this->campo($dados, "id_item", 0);
+
+        if ($idCliente <= 0 || $idItem <= 0) {
+            return false;
+        }
+
+        return $this->bancoDeDados->removerItemCarrinho($idCliente, $idItem);
+    }
+
+    public function finalizarCarrinho($dados, $idCliente)
+    {
+        $formaPagamento = $this->campo($dados, "forma_pagamento");
+        $enderecoEntrega = $this->campo($dados, "endereco_entrega");
+
+        if ($idCliente <= 0 || $formaPagamento == "" || $enderecoEntrega == "") {
+            return false;
+        }
+
+        return $this->bancoDeDados->finalizarCarrinho($idCliente, $formaPagamento, $enderecoEntrega);
+    }
+
+    public function calcularTotalCarrinho($itens)
+    {
+        $total = 0;
+
+        foreach ($itens as $item) {
+            $total += (float) $item["subtotal"];
+        }
+
+        return $total;
     }
 
     public function listarLojas()

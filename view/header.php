@@ -31,6 +31,7 @@
                     <li><a href="/Git/Xhoppi/view/verClientes.php">Ver Clientes</a></li>
                     <li><a href="/Git/Xhoppi/view/verFuncionario.php">Ver Funcionarios</a></li>
                     <li><a href="/Git/Xhoppi/view/Produtos.php">Ver Produtos</a></li>
+                    <li><a href="/Git/Xhoppi/view/carrinho.php">Carrinho</a></li>
                     <li class="dropdown">
                     <a href="#">Admin ▼</a>
                     <ul class="dropdown-menu">

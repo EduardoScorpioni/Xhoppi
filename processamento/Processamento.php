@@ -48,6 +48,70 @@ switch ($acao) {
         redirecionar("cadastroCupons.php", $controller->cadastrarCupom($_POST, $_FILES));
         break;
 
+    case "finalizar_compra":
+        if (!isset($_SESSION["usuario"])) {
+            header("Location: ../view/login.php");
+            exit;
+        }
+
+        $idProduto = isset($_POST["id_produto"]) ? (int) $_POST["id_produto"] : 0;
+        $idPedido = $controller->finalizarCompra($_POST, $_SESSION["usuario"]["id"]);
+
+        if ($idPedido) {
+            header("Location: ../view/finalizarCompra.php?status=sucesso&pedido=" . $idPedido);
+            exit;
+        }
+
+        header("Location: ../view/finalizarCompra.php?id=" . $idProduto . "&status=erro");
+        exit;
+
+    case "adicionar_carrinho":
+        if (!isset($_SESSION["usuario"])) {
+            header("Location: ../view/login.php");
+            exit;
+        }
+
+        $idProduto = isset($_POST["id_produto"]) ? (int) $_POST["id_produto"] : 0;
+        $sucesso = $controller->adicionarAoCarrinho($_POST, $_SESSION["usuario"]["id"]);
+        $status = $sucesso ? "adicionado" : "erro";
+
+        header("Location: ../view/carrinho.php?status=" . $status . "&produto=" . $idProduto);
+        exit;
+
+    case "atualizar_carrinho":
+        if (!isset($_SESSION["usuario"])) {
+            header("Location: ../view/login.php");
+            exit;
+        }
+
+        redirecionar("carrinho.php", $controller->atualizarCarrinho($_POST, $_SESSION["usuario"]["id"]));
+        break;
+
+    case "remover_carrinho":
+        if (!isset($_SESSION["usuario"])) {
+            header("Location: ../view/login.php");
+            exit;
+        }
+
+        redirecionar("carrinho.php", $controller->removerDoCarrinho($_POST, $_SESSION["usuario"]["id"]));
+        break;
+
+    case "finalizar_carrinho":
+        if (!isset($_SESSION["usuario"])) {
+            header("Location: ../view/login.php");
+            exit;
+        }
+
+        $idPedido = $controller->finalizarCarrinho($_POST, $_SESSION["usuario"]["id"]);
+
+        if ($idPedido) {
+            header("Location: ../view/finalizarCompra.php?status=sucesso&pedido=" . $idPedido);
+            exit;
+        }
+
+        header("Location: ../view/carrinho.php?status=erro_finalizar");
+        exit;
+
     default:
         header("Location: ../index.php");
         exit;

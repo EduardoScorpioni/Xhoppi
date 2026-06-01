@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #222;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.checkout-pagina {
+    max-width: 62rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    gap: 1.25rem;
+}
+
+.checkout-card {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.checkout-card h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.checkout-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.checkout-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-weight: 700;
+}
+
+.checkout-form input,
+.checkout-form select {
+    border: 0.06rem solid #ddd;
+    border-radius: 0.25rem;
+    color: #222;
+    font-size: 0.95rem;
+    padding: 0.75rem;
+}
+
+.checkout-form input[readonly] {
+    background-color: #f5f5f5;
+    color: #555;
+}
+
+.linha-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.resumo-produto {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.resumo-produto img {
+    width: 6rem;
+    height: 6rem;
+    border: 0.06rem solid #eee;
+    border-radius: 0.35rem;
+    object-fit: contain;
+}
+
+.resumo-produto h3,
+.resumo-produto h2 {
+    margin-bottom: 0.4rem;
+}
+
+.resumo-produto p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.total {
+    border-top: 0.06rem solid #eee;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+}
+
+.btn-principal {
+    align-self: flex-start;
+    background-color: #f26522;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+}
+
+.mensagem-erro {
+    background-color: #fff2ee;
+    border-left: 0.25rem solid #f26522;
+    color: #9b2d00;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+}
+
+.sucesso-card {
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+.sucesso-card > p {
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.sucesso-card .btn-principal {
+    margin-top: 1.25rem;
+}
+
+.item-pedido {
+    border-bottom: 0.06rem solid #eee;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+.dados-pedido {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 800px) {
+    .checkout-grid,
+    .linha-form {
+        grid-template-columns: 1fr;
+    }
+}

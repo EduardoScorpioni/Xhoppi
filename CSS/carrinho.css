@@ -1,0 +1,192 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #222;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.carrinho-pagina {
+    max-width: 68rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.carrinho-topo {
+    margin-bottom: 1rem;
+}
+
+.carrinho-topo h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.35rem;
+}
+
+.carrinho-topo p {
+    color: #666;
+}
+
+.mensagem {
+    border-radius: 0.35rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+}
+
+.mensagem.sucesso {
+    background-color: #eefbf1;
+    color: #166528;
+}
+
+.mensagem.erro {
+    background-color: #fff2ee;
+    color: #9b2d00;
+}
+
+.carrinho-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    gap: 1.25rem;
+}
+
+.lista-itens,
+.resumo-carrinho,
+.carrinho-vazio {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+}
+
+.item-carrinho {
+    border-bottom: 0.06rem solid #eee;
+    display: grid;
+    grid-template-columns: 6rem minmax(0, 1fr) 14rem;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.item-carrinho:first-child {
+    padding-top: 0;
+}
+
+.item-carrinho:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.item-carrinho img {
+    width: 6rem;
+    height: 6rem;
+    border: 0.06rem solid #eee;
+    border-radius: 0.35rem;
+    object-fit: contain;
+}
+
+.item-info h2 {
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+}
+
+.item-info p,
+.item-info span,
+.item-acoes p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.item-acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: flex-start;
+}
+
+.form-quantidade {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.form-quantidade input {
+    width: 4.5rem;
+}
+
+.form-quantidade input,
+.form-finalizar input,
+.form-finalizar select {
+    border: 0.06rem solid #ddd;
+    border-radius: 0.25rem;
+    color: #222;
+    padding: 0.6rem;
+}
+
+.form-quantidade button,
+.btn-remover {
+    background-color: #fff;
+    border: 0.06rem solid #ddd;
+    color: #333;
+    cursor: pointer;
+    padding: 0.6rem 0.8rem;
+}
+
+.btn-remover {
+    color: #b03214;
+}
+
+.resumo-carrinho h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.linha-total {
+    border-bottom: 0.06rem solid #eee;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.85rem 0;
+}
+
+.form-finalizar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-top: 1rem;
+}
+
+.form-finalizar label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-weight: 700;
+}
+
+.btn-principal {
+    background-color: #f26522;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem 1.4rem;
+    text-decoration: none;
+}
+
+.carrinho-vazio {
+    text-align: center;
+}
+
+.carrinho-vazio h2 {
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 850px) {
+    .carrinho-grid,
+    .item-carrinho {
+        grid-template-columns: 1fr;
+    }
+
+    .item-acoes {
+        align-items: stretch;
+    }
+}

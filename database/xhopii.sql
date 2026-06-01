@@ -12,6 +12,10 @@ CREATE DATABASE IF NOT EXISTS xhopii
 
 USE xhopii;
 
+DROP TABLE IF EXISTS pedido_item;
+DROP TABLE IF EXISTS pedido;
+DROP TABLE IF EXISTS carrinho_item;
+DROP TABLE IF EXISTS carrinho;
 DROP TABLE IF EXISTS cupom;
 DROP TABLE IF EXISTS produto;
 DROP TABLE IF EXISTS funcionario;
@@ -102,6 +106,73 @@ CREATE TABLE cupom (
     FOREIGN KEY (id_loja) REFERENCES loja (id_loja)
     ON UPDATE CASCADE
     ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE carrinho (
+  id_carrinho INT NOT NULL AUTO_INCREMENT,
+  id_cliente INT NOT NULL,
+  criado_em DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id_carrinho),
+  UNIQUE KEY uk_carrinho_cliente (id_cliente),
+  CONSTRAINT fk_carrinho_cliente
+    FOREIGN KEY (id_cliente) REFERENCES cliente (id_cliente)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE carrinho_item (
+  id_item INT NOT NULL AUTO_INCREMENT,
+  id_carrinho INT NOT NULL,
+  id_produto INT NOT NULL,
+  quantidade INT NOT NULL DEFAULT 1,
+  criado_em DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id_item),
+  UNIQUE KEY uk_carrinho_produto (id_carrinho, id_produto),
+  KEY fk_carrinho_item_produto (id_produto),
+  CONSTRAINT fk_carrinho_item_carrinho
+    FOREIGN KEY (id_carrinho) REFERENCES carrinho (id_carrinho)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
+  CONSTRAINT fk_carrinho_item_produto
+    FOREIGN KEY (id_produto) REFERENCES produto (id_produto)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE pedido (
+  id_pedido INT NOT NULL AUTO_INCREMENT,
+  id_cliente INT NOT NULL,
+  valor_total DECIMAL(10,2) NOT NULL,
+  forma_pagamento VARCHAR(40) NOT NULL,
+  endereco_entrega VARCHAR(180) NOT NULL,
+  status VARCHAR(30) NOT NULL DEFAULT 'Pendente',
+  criado_em DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id_pedido),
+  KEY fk_pedido_cliente (id_cliente),
+  CONSTRAINT fk_pedido_cliente
+    FOREIGN KEY (id_cliente) REFERENCES cliente (id_cliente)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE pedido_item (
+  id_item INT NOT NULL AUTO_INCREMENT,
+  id_pedido INT NOT NULL,
+  id_produto INT NOT NULL,
+  quantidade INT NOT NULL,
+  valor_unitario DECIMAL(10,2) NOT NULL,
+  subtotal DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (id_item),
+  KEY fk_pedido_item_pedido (id_pedido),
+  KEY fk_pedido_item_produto (id_produto),
+  CONSTRAINT fk_pedido_item_pedido
+    FOREIGN KEY (id_pedido) REFERENCES pedido (id_pedido)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
+  CONSTRAINT fk_pedido_item_produto
+    FOREIGN KEY (id_produto) REFERENCES produto (id_produto)
+    ON UPDATE CASCADE
+    ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO loja
