@@ -1,5 +1,6 @@
 <?php
 require_once dirname(__DIR__) . "/processamento/verificarLogin.php";
+exigirNivel(array("admin"));
 require_once dirname(__DIR__) . "/controller/Controller.php";
 
 $controller = new Controller();

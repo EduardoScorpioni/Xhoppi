@@ -1,9 +1,10 @@
 <?php
 require_once dirname(__DIR__) . "/processamento/verificarLogin.php";
+exigirNivel(array("cliente"));
 require_once dirname(__DIR__) . "/controller/Controller.php";
 
 $controller = new Controller();
-$idCliente = $_SESSION["usuario"]["id"];
+$idCliente = $_SESSION["usuario"]["id_cliente"];
 $cliente = $controller->buscarCliente($idCliente);
 $itens = $controller->listarItensCarrinho($idCliente);
 $total = $controller->calcularTotalCarrinho($itens);

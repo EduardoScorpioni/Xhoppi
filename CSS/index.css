@@ -5,6 +5,15 @@
     overflow: hidden;
 }
 
+.mensagem-acesso {
+    width: 60%;
+    margin: 1rem auto;
+    padding: 0.75rem 1rem;
+    background-color: #fff2ee;
+    border-left: 0.25rem solid #ff5722;
+    color: #9b2d00;
+}
+
 .carousel-item{
     height: 20rem;
 }

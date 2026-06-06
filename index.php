@@ -4,6 +4,7 @@ require_once __DIR__ . "/controller/Controller.php";
 
 $controller = new Controller();
 $produtos = $controller->listarProdutos();
+$acessoNegado = isset($_GET["acesso"]) && $_GET["acesso"] == "negado";
 
 function escaparIndex($valor){
   return htmlspecialchars($valor, ENT_QUOTES, "UTF-8");
@@ -37,6 +38,9 @@ function imagemProdutoIndex($imagem){
     </head>
     <body>
       <?php include "view/header.php"?>
+      <?php if ($acessoNegado) { ?>
+        <p class="mensagem-acesso">Voce nao tem permissao para acessar essa pagina.</p>
+      <?php } ?>
         <section id="carouselExampleIndicators" class="carousel slide">
             <section class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

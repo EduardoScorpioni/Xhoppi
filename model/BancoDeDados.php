@@ -55,11 +55,11 @@ class BancoDeDados
         return mysqli_stmt_execute($stmt);
     }
 
-    public function inserirFuncionario($funcionario)
+    public function inserirFuncionario($funcionario, $nivelAcesso = "funcionario")
     {
         $conexao = $this->conectarBD();
-        $consulta = "INSERT INTO funcionario (cpf, nome, sobrenome, dataNascimento, telefone, cargo, salario, email, senha, fotoPerfil)
-                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $consulta = "INSERT INTO funcionario (cpf, nome, sobrenome, dataNascimento, telefone, cargo, salario, email, senha, fotoPerfil, nivel_acesso)
+                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $stmt = mysqli_prepare($conexao, $consulta);
         $cpf = $funcionario->getCpf();
@@ -73,7 +73,7 @@ class BancoDeDados
         $senha = $funcionario->getSenha();
         $fotoPerfil = $funcionario->getFotoPerfil();
 
-        mysqli_stmt_bind_param($stmt, "ssssssdsss", $cpf, $nome, $sobrenome, $dataNascimento, $telefone, $cargo, $salario, $email, $senha, $fotoPerfil);
+        mysqli_stmt_bind_param($stmt, "ssssssdssss", $cpf, $nome, $sobrenome, $dataNascimento, $telefone, $cargo, $salario, $email, $senha, $fotoPerfil, $nivelAcesso);
 
         return mysqli_stmt_execute($stmt);
     }
@@ -149,6 +149,21 @@ class BancoDeDados
     return mysqli_fetch_assoc($resultado);
     }
 
+    public function retornarFuncionarioPorEmail($email)
+    {
+        $conexao = $this->conectarBD();
+
+        $consulta = "SELECT * FROM funcionario WHERE email = ? LIMIT 1";
+        $stmt = mysqli_prepare($conexao, $consulta);
+
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+
+        $resultado = mysqli_stmt_get_result($stmt);
+
+        return mysqli_fetch_assoc($resultado);
+    }
+
     public function retornarClientePorId($idCliente)
     {
         $conexao = $this->conectarBD();
@@ -161,6 +176,54 @@ class BancoDeDados
         $resultado = mysqli_stmt_get_result($stmt);
 
         return mysqli_fetch_assoc($resultado);
+    }
+
+    public function retornarFuncionarioPorId($idFuncionario)
+    {
+        $conexao = $this->conectarBD();
+        $consulta = "SELECT * FROM funcionario WHERE id_funcionario = ? LIMIT 1";
+        $stmt = mysqli_prepare($conexao, $consulta);
+
+        mysqli_stmt_bind_param($stmt, "i", $idFuncionario);
+        mysqli_stmt_execute($stmt);
+
+        $resultado = mysqli_stmt_get_result($stmt);
+
+        return mysqli_fetch_assoc($resultado);
+    }
+
+    public function atualizarPerfilCliente($idCliente, $dados)
+    {
+        try {
+            $conexao = $this->conectarBD();
+            $consulta = "UPDATE cliente
+                         SET nome = ?, sobrenome = ?, telefone = ?, email = ?, senha = ?, fotoPerfil = ?
+                         WHERE id_cliente = ?";
+            $stmt = mysqli_prepare($conexao, $consulta);
+
+            mysqli_stmt_bind_param($stmt, "ssssssi", $dados["nome"], $dados["sobrenome"], $dados["telefone"], $dados["email"], $dados["senha"], $dados["fotoPerfil"], $idCliente);
+
+            return mysqli_stmt_execute($stmt);
+        } catch (Throwable $erro) {
+            return false;
+        }
+    }
+
+    public function atualizarPerfilFuncionario($idFuncionario, $dados)
+    {
+        try {
+            $conexao = $this->conectarBD();
+            $consulta = "UPDATE funcionario
+                         SET nome = ?, sobrenome = ?, telefone = ?, email = ?, senha = ?, fotoPerfil = ?
+                         WHERE id_funcionario = ?";
+            $stmt = mysqli_prepare($conexao, $consulta);
+
+            mysqli_stmt_bind_param($stmt, "ssssssi", $dados["nome"], $dados["sobrenome"], $dados["telefone"], $dados["email"], $dados["senha"], $dados["fotoPerfil"], $idFuncionario);
+
+            return mysqli_stmt_execute($stmt);
+        } catch (Throwable $erro) {
+            return false;
+        }
     }
 
     public function finalizarCompra($idCliente, $idProduto, $quantidade, $formaPagamento, $enderecoEntrega)

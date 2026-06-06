@@ -51,7 +51,13 @@ class Controller
             $fotoPerfil
         );
 
-        return $this->bancoDeDados->inserirFuncionario($funcionario);
+        $nivelAcesso = $this->campo($dados, "nivel_acesso", "funcionario");
+
+        if ($nivelAcesso != "admin") {
+            $nivelAcesso = "funcionario";
+        }
+
+        return $this->bancoDeDados->inserirFuncionario($funcionario, $nivelAcesso);
     }
 
     public function cadastrarProduto($dados, $arquivos = array())
@@ -105,7 +111,7 @@ class Controller
         return $this->bancoDeDados->inserirCupom($cupom);
     }
 
-    public function autenticarCliente($dados)
+    public function autenticarUsuario($dados)
     {
     $email = $this->campo($dados, "email");
     $senha = $this->campo($dados, "senha");
@@ -116,19 +122,32 @@ class Controller
 
     $cliente = $this->bancoDeDados->retornarClientePorEmail($email);
 
-    if (!$cliente) {
-        return false;
+    if ($cliente && $this->senhaCorreta($senha, $cliente["senha"])) {
+        $cliente["tipo_usuario"] = "cliente";
+        $cliente["id_usuario"] = $cliente["id_cliente"];
+        $cliente["id_funcionario"] = null;
+        $cliente["nivel_acesso"] = $cliente["nivel_acesso"] == "" ? "cliente" : $cliente["nivel_acesso"];
+
+        return $cliente;
     }
 
-    $senhaBanco = $cliente["senha"];
+    $funcionario = $this->bancoDeDados->retornarFuncionarioPorEmail($email);
 
-    $senhaCorreta = password_verify($senha, $senhaBanco) || $senha == $senhaBanco;
+    if ($funcionario && $this->senhaCorreta($senha, $funcionario["senha"])) {
+        $funcionario["tipo_usuario"] = "funcionario";
+        $funcionario["id_usuario"] = $funcionario["id_funcionario"];
+        $funcionario["id_cliente"] = null;
+        $funcionario["nivel_acesso"] = $funcionario["nivel_acesso"] == "" ? "funcionario" : $funcionario["nivel_acesso"];
 
-    if (!$senhaCorreta) {
-        return false;
+        return $funcionario;
     }
 
-    return $cliente;
+    return false;
+    }
+
+    public function autenticarCliente($dados)
+    {
+        return $this->autenticarUsuario($dados);
     }
 
     public function listarClientes()
@@ -165,6 +184,62 @@ class Controller
     public function buscarCliente($idCliente)
     {
         return $this->bancoDeDados->retornarClientePorId((int) $idCliente);
+    }
+
+    public function buscarFuncionario($idFuncionario)
+    {
+        return $this->bancoDeDados->retornarFuncionarioPorId((int) $idFuncionario);
+    }
+
+    public function buscarUsuarioSessao($usuario)
+    {
+        if (!isset($usuario["tipo"])) {
+            return false;
+        }
+
+        if ($usuario["tipo"] == "cliente") {
+            return $this->buscarCliente($usuario["id_cliente"]);
+        }
+
+        return $this->buscarFuncionario($usuario["id_funcionario"]);
+    }
+
+    public function atualizarPerfil($dados, $arquivos, $usuario)
+    {
+        $usuarioAtual = $this->buscarUsuarioSessao($usuario);
+
+        if (!$usuarioAtual) {
+            return false;
+        }
+
+        $fotoPerfil = $this->salvarUpload($arquivos, "fotoPerfil", "perfil");
+
+        if ($fotoPerfil == null) {
+            $fotoPerfil = $usuarioAtual["fotoPerfil"];
+        }
+
+        $senha = $this->campo($dados, "nova_senha");
+
+        if ($senha == "") {
+            $senha = $usuarioAtual["senha"];
+        } else {
+            $senha = $this->prepararSenha($senha);
+        }
+
+        $dadosPerfil = array(
+            "nome" => $this->campo($dados, "nome"),
+            "sobrenome" => $this->campo($dados, "sobrenome"),
+            "telefone" => $this->campo($dados, "telefone"),
+            "email" => $this->campo($dados, "email"),
+            "senha" => $senha,
+            "fotoPerfil" => $fotoPerfil
+        );
+
+        if ($usuario["tipo"] == "cliente") {
+            return $this->bancoDeDados->atualizarPerfilCliente($usuario["id_cliente"], $dadosPerfil);
+        }
+
+        return $this->bancoDeDados->atualizarPerfilFuncionario($usuario["id_funcionario"], $dadosPerfil);
     }
 
     public function buscarProduto($idProduto = null)
@@ -311,6 +386,11 @@ class Controller
         }
 
         return password_hash($senha, PASSWORD_DEFAULT);
+    }
+
+    private function senhaCorreta($senhaDigitada, $senhaBanco)
+    {
+        return password_verify($senhaDigitada, $senhaBanco) || $senhaDigitada == $senhaBanco;
     }
 
     private function salvarUpload($arquivos, $campo, $prefixo)

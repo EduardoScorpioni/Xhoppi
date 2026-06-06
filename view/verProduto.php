@@ -81,16 +81,18 @@ function caminhoImagemProduto($imagem)
                             <p class="label-opcao">Descricao:</p>
                             <p><?php echo e($produto["descricao"]); ?></p>
                         </section>
-                        <section class="acoes-produto">
-                            <a href="finalizarCompra.php?id=<?php echo (int) $produto["id_produto"]; ?>" class="btn-comprar">Comprar Agora</a>
+                        <?php if (usuarioTemNivel(array("cliente"))) { ?>
+                            <section class="acoes-produto">
+                                <a href="finalizarCompra.php?id=<?php echo (int) $produto["id_produto"]; ?>" class="btn-comprar">Comprar Agora</a>
 
-                            <form action="../processamento/Processamento.php" method="post">
-                                <input type="hidden" name="acao" value="adicionar_carrinho">
-                                <input type="hidden" name="id_produto" value="<?php echo (int) $produto["id_produto"]; ?>">
-                                <input type="hidden" name="quantidade" value="1">
-                                <button type="submit" class="btn-carrinho">Adicionar ao carrinho</button>
-                            </form>
-                        </section>
+                                <form action="../processamento/Processamento.php" method="post">
+                                    <input type="hidden" name="acao" value="adicionar_carrinho">
+                                    <input type="hidden" name="id_produto" value="<?php echo (int) $produto["id_produto"]; ?>">
+                                    <input type="hidden" name="quantidade" value="1">
+                                    <button type="submit" class="btn-carrinho">Adicionar ao carrinho</button>
+                                </form>
+                            </section>
+                        <?php } ?>
                     </section>
                 </section>
             <?php } ?>

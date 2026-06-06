@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #222;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.perfil-pagina {
+    max-width: 46rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.perfil-card {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.perfil-topo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 0.06rem solid #eee;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+
+.perfil-topo img {
+    width: 5.5rem;
+    height: 5.5rem;
+    border: 0.06rem solid #eee;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.perfil-topo h1 {
+    font-size: 1.6rem;
+}
+
+.perfil-topo p {
+    color: #666;
+    margin-top: 0.3rem;
+}
+
+.mensagem {
+    border-radius: 0.35rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+}
+
+.mensagem.sucesso {
+    background-color: #eefbf1;
+    color: #166528;
+}
+
+.mensagem.erro {
+    background-color: #fff2ee;
+    color: #9b2d00;
+}
+
+.perfil-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.linha-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.perfil-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-weight: 700;
+}
+
+.perfil-form input {
+    border: 0.06rem solid #ddd;
+    border-radius: 0.25rem;
+    color: #222;
+    padding: 0.75rem;
+}
+
+.dados-bloqueados {
+    background-color: #f7f7f7;
+    border-left: 0.25rem solid #f26522;
+    display: grid;
+    gap: 0.35rem;
+    padding: 0.85rem;
+}
+
+.perfil-form button {
+    align-self: flex-start;
+    background-color: #f26522;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+}
+
+@media (max-width: 700px) {
+    .linha-form {
+        grid-template-columns: 1fr;
+    }
+}

@@ -9,4 +9,26 @@ if (!isset($_SESSION["usuario"])) {
     exit;
 }
 
+function nivelUsuarioLogado()
+{
+    return isset($_SESSION["usuario"]["nivel_acesso"]) ? $_SESSION["usuario"]["nivel_acesso"] : "";
+}
+
+function usuarioTemNivel($niveisPermitidos)
+{
+    if (!is_array($niveisPermitidos)) {
+        $niveisPermitidos = array($niveisPermitidos);
+    }
+
+    return in_array(nivelUsuarioLogado(), $niveisPermitidos);
+}
+
+function exigirNivel($niveisPermitidos)
+{
+    if (!usuarioTemNivel($niveisPermitidos)) {
+        header("Location: /Git/Xhoppi/index.php?acesso=negado");
+        exit;
+    }
+}
+
 ?>
