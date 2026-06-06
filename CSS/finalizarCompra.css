@@ -152,7 +152,7 @@ body {
     margin-top: 1rem;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 50rem) {
     .checkout-grid,
     .linha-form {
         grid-template-columns: 1fr;

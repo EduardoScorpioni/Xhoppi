@@ -43,7 +43,7 @@
 }
 
 .background {
-    height: calc(100vh - 3.75rem);
+    min-height: 40rem;
     background: rgb(255, 79, 46);
     display: flex;
     justify-content: center;

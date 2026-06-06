@@ -90,8 +90,8 @@ header .navBar {
     top: 100%;
     right: 0;
     background-color: rgb(251, 119, 48);
-    min-width: 180px;
-    border-radius: 5px;
+    min-width: 11.25rem;
+    border-radius: 0.3125rem;
     z-index: 1000;
     padding: 0;
 }
@@ -108,7 +108,7 @@ header .navBar {
     display: block !important;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 56.25rem) {
     .navBar > ul {
         justify-content: flex-start;
         overflow-x: auto;

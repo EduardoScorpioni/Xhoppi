@@ -6,7 +6,7 @@
 }
 .pagina{
     color: #222;
-    padding: 20px;
+    padding: 1.25rem;
 }
 .funcionario-card{
     background-color: #fff;
@@ -24,7 +24,7 @@
     width: 100%;
     border-collapse: collapse;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 0.5rem;
 }
 .tabela thead{
     background-color: rgb(251, 119, 48);
@@ -43,9 +43,9 @@
     border-bottom: 0.06rem solid #eee;
 }
 .tabela td{
-    padding: 12px;
+    padding: 0.75rem;
     font-size: 0.9rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 0.0625rem solid #eee;
 }
 
 .tabela tbody tr:nth-child(even){

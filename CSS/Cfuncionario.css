@@ -11,33 +11,31 @@ body{
 
 .card {
     background-color: rgb(255, 255, 255);
-    width: 40%;
-    height: 75rem;
-    margin-left: 30%;
-    margin-right: 35%;
-    margin-bottom: 2%;
-    margin-top: 2%;
+    width: 40rem;
+    max-width: calc(100% - 2rem);
+    margin: 2rem auto;
+    padding: 2rem 0;
     border-radius: 0.4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5vb;
+    gap: 2rem;
 
 }
 .card h2{
     color: #ff5722;
-    margin-top: 4%;
+    margin: 0;
     display: flex;
-    margin-right: 10%;
 }
 .card input,
 .card select {
-    width: 60%;
-    height: 45px;
-    padding: 10px;
+    width: 24rem;
+    max-width: calc(100% - 4rem);
+    height: 2.8125rem;
+    padding: 0.625rem;
     border-radius: 0.4rem;
-    border: 1px solid #ccc;
-    font-size: 14px;
+    border: 0.0625rem solid #ccc;
+    font-size: 0.875rem;
 }
 .card h3{
     color: #ff5722;
@@ -47,32 +45,34 @@ body{
 }
 
 .file-container {
-    width: 60%;
+    width: 24rem;
+    max-width: calc(100% - 4rem);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 .file-label {
-    padding: 8px 15px;
+    padding: 0.5rem 0.9375rem;
     background-color: transparent;
     color: #ff5722;
-    border: 2px solid #ff5722;
-    border-radius: 10px;
+    border: 0.125rem solid #ff5722;
+    border-radius: 0.625rem;
     cursor: pointer;
     font-weight: bold;
     white-space: nowrap;
 }
 .card button {
-    width: 60%;
-    padding: 12px;
+    width: 24rem;
+    max-width: calc(100% - 4rem);
+    padding: 0.75rem;
     background-color: #ff5722;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     font-weight: bold;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .card button:hover {

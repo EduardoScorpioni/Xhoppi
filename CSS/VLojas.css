@@ -13,19 +13,19 @@
     background: #fff;
     border-radius: 0.5rem;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 0.25rem 0.625rem rgba(0,0,0,0.08);
     transition: 0.3s;
     cursor: pointer;
 }
 
 .loja-card:hover{
-    transform: translateY(-5px);
+    transform: translateY(-0.3125rem);
 }
 
 
 .loja-card img{
     width: 100%;
-    height: 180px;
+    height: 11.25rem;
     object-fit: cover;
 }
 

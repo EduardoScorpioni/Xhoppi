@@ -1,12 +1,14 @@
 .carousel{
-    width: 60%;
+    width: 50rem;
+    max-width: calc(100% - 2rem);
     margin: 4rem auto;
     border-radius: 0.625rem;
     overflow: hidden;
 }
 
 .mensagem-acesso {
-    width: 60%;
+    width: 50rem;
+    max-width: calc(100% - 2rem);
     margin: 1rem auto;
     padding: 0.75rem 1rem;
     background-color: #fff2ee;
@@ -24,7 +26,8 @@
     object-fit: cover; /* preenche tudo */
 }
 .banner{
-    width: 70%;
+    width: 64rem;
+    max-width: calc(100% - 2rem);
     margin: 1rem auto;
     border-radius: 0.625rem;
     overflow: hidden;
@@ -37,31 +40,32 @@
 }
 .produtos{
     display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* esta função faz com que ele preencha automaticamente com valores ja ditos */
+  grid-template-columns: repeat(auto-fill, minmax(11.25rem, 1fr)); /* esta função faz com que ele preencha automaticamente com valores ja ditos */
  /*   grid-template-columns: repeat(10,1fr); */
-    gap: 20px;
-    padding: 20px;
-    width: 70%;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    width: 70rem;
+    max-width: calc(100% - 2rem);
     margin: 0 auto;
 }
 
 .card{
     background-color: rgb(255, 255, 255);
-    padding: 10px;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 0.625rem;
+    border-radius: 0.375rem;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.1);
     transition: 0.2s;
 }
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-0.3125rem);
 }
 .card img {
     width: 100%;
 }
 .titulo {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #333;
-    margin: 10px 0;
+    margin: 0.625rem 0;
 }
 
 .info {
@@ -77,18 +81,19 @@
 
 .estoque {
     color: #999;
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 .titulo-secao {
     text-align: center;
     color: #ff5722;
-    margin: 20px 0;
+    margin: 1.25rem 0;
     position: relative;
 }
 .linha-capenga {
-    width: 70%;
-    margin: 20px auto;
+    width: 70rem;
+    max-width: calc(100% - 2rem);
+    margin: 1.25rem auto;
     border: none;
-    height: 4px;
+    height: 0.25rem;
     background-color: #ff5722;
 }

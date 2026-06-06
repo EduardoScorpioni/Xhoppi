@@ -177,7 +177,7 @@ hr {
     filter: brightness(0.96);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 50rem) {
     .produto-card,
     .galeria {
         flex-direction: column;

@@ -42,7 +42,7 @@
     font-size: 0.875rem;
 }
 .conteiner{
-    min-height: calc(70vh - 3.75rem); /*caucula e ocupa o espaço entro o header e o footer*/
+    min-height: 28rem; /* ocupa o espaco entre o header e o footer */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +53,7 @@
     background-color: #fff;
     padding: 2rem;
     border-radius: 0.25rem;
-    box-shadow: 2px 2px 2px;
+    box-shadow: 0.125rem 0.125rem 0.125rem;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
@@ -80,7 +80,7 @@
   padding: 0.75rem;
   background-color: #ee4d2d;
   color: #fff;
-  border: 100px 100px 100px;
+  border: 6.25rem 6.25rem 6.25rem;
   font-size: 0.875rem;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
