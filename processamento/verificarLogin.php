@@ -11,7 +11,7 @@ if (!isset($_SESSION["usuario"])) {
 
 function nivelUsuarioLogado()
 {
-    return isset($_SESSION["usuario"]["nivel_acesso"]) ? $_SESSION["usuario"]["nivel_acesso"] : "";
+    return isset($_SESSION["usuario"]["nivel_acesso"]) ? normalizarNivelAcesso($_SESSION["usuario"]["nivel_acesso"]) : "";
 }
 
 function usuarioTemNivel($niveisPermitidos)
@@ -19,6 +19,8 @@ function usuarioTemNivel($niveisPermitidos)
     if (!is_array($niveisPermitidos)) {
         $niveisPermitidos = array($niveisPermitidos);
     }
+
+    $niveisPermitidos = array_map("normalizarNivelAcesso", $niveisPermitidos);
 
     return in_array(nivelUsuarioLogado(), $niveisPermitidos);
 }
@@ -29,6 +31,15 @@ function exigirNivel($niveisPermitidos)
         header("Location: /Git/Xhoppi/index.php?acesso=negado");
         exit;
     }
+}
+
+function normalizarNivelAcesso($nivelAcesso)
+{
+    if ($nivelAcesso == "admin") {
+        return "gerente";
+    }
+
+    return $nivelAcesso;
 }
 
 ?>

@@ -5,10 +5,11 @@ if (session_status() == PHP_SESSION_NONE) {
 
 $usuarioHeader = isset($_SESSION["usuario"]) ? $_SESSION["usuario"] : null;
 $nivelHeader = $usuarioHeader && isset($usuarioHeader["nivel_acesso"]) ? $usuarioHeader["nivel_acesso"] : "";
+$nivelHeader = $nivelHeader == "admin" ? "gerente" : $nivelHeader;
 $logadoHeader = $usuarioHeader != null;
 $ehClienteHeader = $nivelHeader == "cliente";
-$ehFuncionarioHeader = $nivelHeader == "funcionario" || $nivelHeader == "admin";
-$ehAdminHeader = $nivelHeader == "admin";
+$ehFuncionarioHeader = $nivelHeader == "funcionario" || $nivelHeader == "gerente";
+$ehGerenteHeader = $nivelHeader == "gerente";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,13 +55,13 @@ $ehAdminHeader = $nivelHeader == "admin";
                     <li><a href="/Git/Xhoppi/view/cadastroProduto.php">Cadastro Produto</a></li>
                     <li><a href="/Git/Xhoppi/view/verClientes.php">Ver Clientes</a></li>
 
-                    <?php if ($ehAdminHeader) { ?>
+                    <?php if ($ehGerenteHeader) { ?>
                         <li><a href="/Git/Xhoppi/view/cadastroFuncionario.php">Cadastro Funcionario</a></li>
                         <li><a href="/Git/Xhoppi/view/verFuncionario.php">Ver Funcionarios</a></li>
                     <?php } ?>
 
                     <li class="dropdown">
-                        <a href="#">Admin v</a>
+                        <a href="#">Gerencia v</a>
                         <ul class="dropdown-menu">
                             <li><a href="/Git/Xhoppi/view/cadastroLojas.php">Cadastrar Loja</a></li>
                             <li><a href="/Git/Xhoppi/view/verLojas.php">Ver Lojas</a></li>

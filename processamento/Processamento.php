@@ -52,22 +52,22 @@ switch ($acao) {
         break;
 
     case "cadastrar_funcionario":
-        exigirNivelProcessamento(array("admin"));
+        exigirNivelProcessamento(array("gerente"));
         redirecionar("cadastroFuncionario.php", $controller->cadastrarFuncionario($_POST, $_FILES));
         break;
 
     case "cadastrar_produto":
-        exigirNivelProcessamento(array("admin", "funcionario"));
+        exigirNivelProcessamento(array("gerente", "funcionario"));
         redirecionar("cadastroProduto.php", $controller->cadastrarProduto($_POST, $_FILES));
         break;
 
     case "cadastrar_loja":
-        exigirNivelProcessamento(array("admin", "funcionario"));
+        exigirNivelProcessamento(array("gerente", "funcionario"));
         redirecionar("cadastroLojas.php", $controller->cadastrarLoja($_POST, $_FILES));
         break;
 
     case "cadastrar_cupom":
-        exigirNivelProcessamento(array("admin", "funcionario"));
+        exigirNivelProcessamento(array("gerente", "funcionario"));
         redirecionar("cadastroCupons.php", $controller->cadastrarCupom($_POST, $_FILES));
         break;
 
@@ -139,12 +139,22 @@ function exigirNivelProcessamento($niveisPermitidos)
         exit;
     }
 
-    $nivelUsuario = isset($_SESSION["usuario"]["nivel_acesso"]) ? $_SESSION["usuario"]["nivel_acesso"] : "";
+    $nivelUsuario = isset($_SESSION["usuario"]["nivel_acesso"]) ? normalizarNivelProcessamento($_SESSION["usuario"]["nivel_acesso"]) : "";
+    $niveisPermitidos = array_map("normalizarNivelProcessamento", $niveisPermitidos);
 
     if (!in_array($nivelUsuario, $niveisPermitidos)) {
         header("Location: ../index.php?acesso=negado");
         exit;
     }
+}
+
+function normalizarNivelProcessamento($nivelAcesso)
+{
+    if ($nivelAcesso == "admin") {
+        return "gerente";
+    }
+
+    return $nivelAcesso;
 }
 
 ?>

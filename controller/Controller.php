@@ -51,9 +51,9 @@ class Controller
             $fotoPerfil
         );
 
-        $nivelAcesso = $this->campo($dados, "nivel_acesso", "funcionario");
+        $nivelAcesso = $this->normalizarNivelAcesso($this->campo($dados, "nivel_acesso", "funcionario"));
 
-        if ($nivelAcesso != "admin") {
+        if ($nivelAcesso != "gerente") {
             $nivelAcesso = "funcionario";
         }
 
@@ -126,7 +126,7 @@ class Controller
         $cliente["tipo_usuario"] = "cliente";
         $cliente["id_usuario"] = $cliente["id_cliente"];
         $cliente["id_funcionario"] = null;
-        $cliente["nivel_acesso"] = $cliente["nivel_acesso"] == "" ? "cliente" : $cliente["nivel_acesso"];
+        $cliente["nivel_acesso"] = $cliente["nivel_acesso"] == "" ? "cliente" : $this->normalizarNivelAcesso($cliente["nivel_acesso"]);
 
         return $cliente;
     }
@@ -137,7 +137,7 @@ class Controller
         $funcionario["tipo_usuario"] = "funcionario";
         $funcionario["id_usuario"] = $funcionario["id_funcionario"];
         $funcionario["id_cliente"] = null;
-        $funcionario["nivel_acesso"] = $funcionario["nivel_acesso"] == "" ? "funcionario" : $funcionario["nivel_acesso"];
+        $funcionario["nivel_acesso"] = $funcionario["nivel_acesso"] == "" ? "funcionario" : $this->normalizarNivelAcesso($funcionario["nivel_acesso"]);
 
         return $funcionario;
     }
@@ -229,6 +229,7 @@ class Controller
         $dadosPerfil = array(
             "nome" => $this->campo($dados, "nome"),
             "sobrenome" => $this->campo($dados, "sobrenome"),
+            "dataNascimento" => $this->campo($dados, "dataNascimento", $usuarioAtual["dataNascimento"]),
             "telefone" => $this->campo($dados, "telefone"),
             "email" => $this->campo($dados, "email"),
             "senha" => $senha,
@@ -391,6 +392,15 @@ class Controller
     private function senhaCorreta($senhaDigitada, $senhaBanco)
     {
         return password_verify($senhaDigitada, $senhaBanco) || $senhaDigitada == $senhaBanco;
+    }
+
+    private function normalizarNivelAcesso($nivelAcesso)
+    {
+        if ($nivelAcesso == "admin") {
+            return "gerente";
+        }
+
+        return $nivelAcesso;
     }
 
     private function salvarUpload($arquivos, $campo, $prefixo)

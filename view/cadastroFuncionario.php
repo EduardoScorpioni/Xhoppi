@@ -1,6 +1,6 @@
 <?php
 require_once dirname(__DIR__) . "/processamento/verificarLogin.php";
-exigirNivel(array("admin"));
+exigirNivel(array("gerente"));
 $status = isset($_GET["status"]) ? $_GET["status"] : "";
 ?>
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ $status = isset($_GET["status"]) ? $_GET["status"] : "";
             <input type="password" name="senha" placeholder="Senha" required>
             <select name="nivel_acesso" required>
                 <option value="funcionario">Funcionario</option>
-                <option value="admin">Administrador</option>
+                <option value="gerente">Gerente</option>
             </select>
 
             <h3>Selecione a foto de perfil</h3>

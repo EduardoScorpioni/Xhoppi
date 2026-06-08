@@ -194,7 +194,7 @@ VALUES
 INSERT INTO funcionario
   (cpf, nome, sobrenome, dataNascimento, telefone, cargo, salario, email, senha, fotoPerfil, nivel_acesso)
 VALUES
-  ('444.555.666-77', 'Bruno', 'Lima', '1990-05-20', '(18) 96666-6666', 'Administrador', 3200.00, 'bruno@xhopii.com', '123456', NULL, 'admin'),
+  ('444.555.666-77', 'Bruno', 'Lima', '1990-05-20', '(18) 96666-6666', 'Gerente', 3200.00, 'bruno@xhopii.com', '123456', NULL, 'gerente'),
   ('555.666.777-88', 'Carla', 'Mendes', '1998-11-03', '(18) 95555-5555', 'Atendente', 2100.00, 'carla@xhopii.com', '123456', NULL, 'funcionario'),
   ('666.777.888-99', 'Lucas', 'Pereira', '1995-07-18', '(18) 94444-4444', 'Suporte', 2500.00, 'lucas@xhopii.com', '123456', NULL, 'funcionario');
 

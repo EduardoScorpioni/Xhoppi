@@ -197,11 +197,11 @@ class BancoDeDados
         try {
             $conexao = $this->conectarBD();
             $consulta = "UPDATE cliente
-                         SET nome = ?, sobrenome = ?, telefone = ?, email = ?, senha = ?, fotoPerfil = ?
+                         SET nome = ?, sobrenome = ?, dataNascimento = ?, telefone = ?, email = ?, senha = ?, fotoPerfil = ?
                          WHERE id_cliente = ?";
             $stmt = mysqli_prepare($conexao, $consulta);
 
-            mysqli_stmt_bind_param($stmt, "ssssssi", $dados["nome"], $dados["sobrenome"], $dados["telefone"], $dados["email"], $dados["senha"], $dados["fotoPerfil"], $idCliente);
+            mysqli_stmt_bind_param($stmt, "sssssssi", $dados["nome"], $dados["sobrenome"], $dados["dataNascimento"], $dados["telefone"], $dados["email"], $dados["senha"], $dados["fotoPerfil"], $idCliente);
 
             return mysqli_stmt_execute($stmt);
         } catch (Throwable $erro) {
@@ -214,11 +214,11 @@ class BancoDeDados
         try {
             $conexao = $this->conectarBD();
             $consulta = "UPDATE funcionario
-                         SET nome = ?, sobrenome = ?, telefone = ?, email = ?, senha = ?, fotoPerfil = ?
+                         SET nome = ?, sobrenome = ?, dataNascimento = ?, telefone = ?, email = ?, senha = ?, fotoPerfil = ?
                          WHERE id_funcionario = ?";
             $stmt = mysqli_prepare($conexao, $consulta);
 
-            mysqli_stmt_bind_param($stmt, "ssssssi", $dados["nome"], $dados["sobrenome"], $dados["telefone"], $dados["email"], $dados["senha"], $dados["fotoPerfil"], $idFuncionario);
+            mysqli_stmt_bind_param($stmt, "sssssssi", $dados["nome"], $dados["sobrenome"], $dados["dataNascimento"], $dados["telefone"], $dados["email"], $dados["senha"], $dados["fotoPerfil"], $idFuncionario);
 
             return mysqli_stmt_execute($stmt);
         } catch (Throwable $erro) {

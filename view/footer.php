@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-<link rel="stylesheet" href="/Git/Xhoppi/CSS/footer.css">
+<link rel="stylesheet" href="/Git/Xhoppi/CSS/footer.css?v=2">
 <link rel="shortcut icon" href="/Git/Xhoppi/img/logo.png" type="image/x-icon">
 <title>Document</title>
 </head>
@@ -70,7 +70,6 @@
             <p align ="center">&copy; 2026 Xhoppi. Todos os direitos acadêmicos reservados.</p>
 
         </section>
-</footer>
 </footer>
     </body>
 </html>
